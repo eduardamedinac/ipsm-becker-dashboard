@@ -914,6 +914,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .just-rank{font-family:"DM Mono",monospace;font-size:11px;color:var(--dim);width:22px;flex-shrink:0}
 .just-name{font-weight:600;font-size:12.5px;flex:1}
 .just-score{font-family:"DM Mono",monospace;font-size:12.5px;font-weight:700;color:var(--p3)}
+.just-flag-ce{font-size:9.5px;font-weight:600;letter-spacing:.03em;color:var(--gold);background:rgba(232,200,74,.12);border:1px solid rgba(232,200,74,.3);border-radius:5px;padding:2px 7px;flex-shrink:0}
 .just-body{padding:0 16px 16px 48px;font-size:12px;line-height:1.7;color:var(--muted)}
 .map-note{font-size:10px;color:var(--dim);line-height:1.5;font-family:"DM Mono",monospace;border-top:1px solid var(--border);padding-top:10px}
 .map-wrap{position:relative}
@@ -968,6 +969,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 <nav class="tab-nav">
   <button class="tab-btn active" data-tab="ranking">Ranking</button>
+  <button class="tab-btn" data-tab="rankingce">IPSM c/ Concorrência</button>
   <button class="tab-btn" data-tab="map">Mapa</button>
   <button class="tab-btn" data-tab="comp">Concorrentes</button>
   <button class="tab-btn" data-tab="chart">Gráficos</button>
@@ -1062,6 +1064,106 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <details class="just-item">
           <summary><span class="just-rank">15º</span><span class="just-name">Encruzilhada</span><span class="just-score">40,3 · Alto</span></summary>
           <div class="just-body">Fecha o Top 15 com um perfil equilibrado: densidade alta (8.301/km², 3ª do grupo), volume de domicílios relevante (8.453, 4º do grupo) e renda mediana (R$ 16.198) — sem se destacar isoladamente em nenhum bloco, mas consistente nos quatro.</div>
+        </details>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- PAGE: RANKING COM CONCORRÊNCIA -->
+<div class="page" id="page-rankingce">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar-rankingce"></aside>
+    <main class="content">
+      <div class="callout">
+        <p><b>Cenário alternativo — Bloco E entra com peso.</b> Esta página recalcula o IPSM tratando a concorrência/saturação (Bloco E) como um critério ponderado, em vez de contexto sem peso. Usa a mesma estrutura de pesos que a Ray aplicou no projeto antes da decisão de 2026-09-04 de tirar o Bloco E do índice — A 30% / B 20% / C 10% / D 20% / E 20% — reativada aqui a pedido da consultora como uma segunda leitura, lado a lado com a página <b>Ranking</b> (que continua sendo a versão principal/oficial do índice, sem concorrência no peso).</p>
+        <p>Direção do indicador: <b>menos concorrência registrada pontua mais</b> (mesma direção já usada quando o Bloco E tinha peso — ver Metodologia §6, "Decisão sobre o Bloco E"). Essa estrutura já foi testada quanto à robustez: correlação de Spearman média de 0,988 e sobreposição de Top 15 de 90,9% sob perturbação de ±20% nos pesos (300 simulações) — mesmo nível de robustez documentado para a versão principal.</p>
+      </div>
+      <div class="kpi-grid" id="kpiGridCE"></div>
+      <div>
+        <div class="sec-title" style="margin-bottom:8px">Top 5 bairros — com concorrência ponderada</div>
+        <div class="top5-grid" id="top5CE"></div>
+      </div>
+      <div class="table-wrap">
+        <div class="table-top">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span class="table-top-title">Ranking completo — IPSM com concorrência</span>
+            <span class="table-count" id="tCountCE">94 bairros</span>
+          </div>
+          <button class="export-btn" id="exportBtnCE">⬇ Exportar CSV</button>
+        </div>
+        <div class="search-wrap">
+          <input type="text" class="search-input" id="searchInputCE" placeholder="Buscar por bairro...">
+        </div>
+        <div class="filter-row" id="fRowCE"></div>
+        <div class="t-scroll">
+          <table class="rtable"><thead id="tHeadCE"></thead><tbody id="tBodyCE"></tbody></table>
+        </div>
+      </div>
+      <div class="just-wrap">
+        <div class="just-top">
+          <div class="just-top-title">Por que esses bairros lideram aqui — Top 15 com concorrência ponderada</div>
+          <div class="just-top-desc">Leitura numérica de cada bairro do Top 15 deste cenário, sob os pesos padrão A 30% / B 20% / C 10% / D 20% / E 20%. Se os pesos ao lado forem alterados, o ranking na tabela acima recalcula na hora, mas os textos abaixo continuam descrevendo os 15 bairros do cenário padrão. 4 bairros deste Top 15 não aparecem no Top 15 da página principal (Bomba do Hemetério, Morro da Conceição, Torre e Zumbi, marcados abaixo) — entram aqui puxados pela ausência de concorrência registrada, que nesta página tem peso.</div>
+        </div>
+        <details class="just-item">
+          <summary><span class="just-rank">1º</span><span class="just-name">Soledade</span><span class="just-score">57,0 · Muito Alto</span></summary>
+          <div class="just-body">Assume a liderança neste cenário (era 3º na página principal, sem concorrência) somando um perfil domiciliar muito forte — 2ª maior taxa de unipessoais entre os 94 bairros (44,8%) e 2º menor número de pessoas por domicílio (1,28) — a zero lavanderias registradas no CNAE, o valor mais baixo possível de saturação (empatado em 1º lugar no critério "menor é melhor").</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">2º</span><span class="just-name">Aflitos</span><span class="just-score">56,2 · Muito Alto</span></summary>
+          <div class="just-body">Sobe da 9ª posição da página principal para 2º lugar aqui — combina a 5ª maior renda média da cidade (R$ 25.575) e densidade acima da mediana (8.324 dom./km², 13º maior) com zero lavanderias registradas, o mesmo empate em 1º lugar em menor concorrência que beneficia Soledade.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">3º</span><span class="just-name">São José</span><span class="just-score">53,8 · Muito Alto</span></summary>
+          <div class="just-body">Mantém posição de destaque nos dois cenários — 5ª maior densidade de comércio entre os 94 bairros (372,7 por mil domicílios) e 6ª maior taxa de unipessoais (32,5%). Tem saturação mediana (57ª entre os 94 em menor concorrência) — nem penaliza nem beneficia muito o bairro neste cenário.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">4º</span><span class="just-name">Boa Vista</span><span class="just-score">53,4 · Muito Alto</span></summary>
+          <div class="just-body">Era o líder da página principal (53,6); cai para 4º aqui porque tem bastante concorrência já instalada — 0,86 lavanderias por mil domicílios, entre as 15 maiores saturações da cidade (84º lugar de 94 em menor concorrência). Segue no topo puxado pela 3ª maior taxa de unipessoais da cidade (43,9%) e pelo 4º menor número de pessoas por domicílio.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">5º</span><span class="just-name">Rosarinho</span><span class="just-score">52,6 · Muito Alto</span></summary>
+          <div class="just-body">Tem a maior densidade domiciliar entre os 94 bairros (13.941 dom./km²) e a 13ª maior renda média (R$ 19.739) — mas também bastante concorrência instalada (76º lugar de 94 em menor concorrência), o que o mantém no Top 15 sem liderá-lo.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">6º</span><span class="just-name">Santo Antônio</span><span class="just-score">52,5 · Muito Alto</span></summary>
+          <div class="just-body">Maior taxa de unipessoais (68,4%) e maior densidade de comércio (2.567 por mil domicílios) de toda a cidade — mas os dois indicadores "por mil domicílios" que carregam peso neste cenário, Fluxo Comercial (Bloco D) e Concorrência (Bloco E), ficam ausentes pelo piso mínimo de base (462 domicílios, abaixo do limiar de 1.000): o score usa só os Blocos A, B e C, com peso redistribuído entre eles — mesmo tratamento estatístico já aplicado na página principal.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">7º</span><span class="just-name">Graças</span><span class="just-score">48,6 · Muito Alto</span></summary>
+          <div class="just-body">4ª maior renda média da cidade (R$ 27.627), mas uma das maiores concorrências já instaladas do Top 15 (85º lugar de 94 em menor concorrência, quase a maior saturação da cidade) — permanece no grupo de liderança pela força de renda e adequação domiciliar, não pela ausência de concorrentes.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">8º</span><span class="just-name">Zumbi</span><span class="just-score">48,2 · Muito Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal (cai para a 24ª posição sem o Bloco E ponderado — ver Construção.md) — volta ao Top 15 aqui puxado quase inteiramente pela ausência de concorrência: zero lavanderias registradas no CNAE, o valor mais baixo possível de saturação.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">9º</span><span class="just-name">Espinheiro</span><span class="just-score">47,7 · Muito Alto</span></summary>
+          <div class="just-body">9ª maior renda média da cidade (R$ 22.147) e boa densidade (7.420 dom./km²) sustentam a posição apesar de ter uma das concorrências mais instaladas do Top 15 (86º lugar de 94 em menor concorrência — 3 das 5 redes nacionais mapeadas têm unidade no bairro).</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">10º</span><span class="just-name">Casa Forte</span><span class="just-score">47,2 · Muito Alto</span></summary>
+          <div class="just-body">Tem a maior renda média de toda a cidade (R$ 29.969), mas o perfil domiciliar é o menos favorável do Top 15 neste cenário (2,33 pessoas por domicílio, 74º lugar de 94 em "menor é melhor") e a concorrência já instalada também pesa contra (80º lugar de 94 em menor concorrência) — a renda isoladamente ainda é suficiente para manter o bairro no grupo de liderança.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">11º</span><span class="just-name">Morro da Conceição</span><span class="just-score">45,9 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal — entra aqui pela combinação de zero lavanderias registradas no CNAE (menor concorrência possível) com a 4ª maior densidade domiciliar da cidade (9.804 dom./km²), mesmo com renda baixa (R$ 3.438, 78º lugar de 94).</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">12º</span><span class="just-name">Encruzilhada</span><span class="just-score">45,7 · Alto</span></summary>
+          <div class="just-body">Presente nos dois cenários — densidade (8.301 dom./km²) e renda (R$ 16.198) medianas-altas dentro do Top 15, com concorrência moderada-alta (77º lugar de 94 em menor concorrência) que o segura perto do fim da lista em ambas as versões.</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">13º</span><span class="just-name">Torre</span><span class="just-score">45,6 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal — entra aqui puxado pela boa densidade domiciliar (8.833 dom./km², 10ª maior da cidade), apesar de ter concorrência relativamente alta (73º lugar de 94 em menor concorrência — 2 redes nacionais mapeadas, OMO e Laundromat).</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">14º</span><span class="just-name">Boa Viagem</span><span class="just-score">45,6 · Alto</span></summary>
+          <div class="just-body">Presente nos dois cenários (10º na página principal, 14º aqui) — cai algumas posições porque concentra a maior concorrência já instalada de toda a cidade (87º lugar de 94 em menor concorrência: as 5 redes nacionais mapeadas e o maior número absoluto de lavanderias independentes do Recife, ver aba Concorrentes). Segue no Top 15 puxado pelo 7º menor número de pessoas por domicílio e por renda considerável (R$ 20.282).</div>
+        </details>
+        <details class="just-item">
+          <summary><span class="just-rank">15º</span><span class="just-name">Bomba do Hemetério</span><span class="just-score">45,6 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal — fecha esta lista quase inteiramente pela ausência de concorrência (zero lavanderias registradas no CNAE), já que os demais indicadores são os mais fracos do grupo (53º lugar de 94 em % de unipessoais e 88º em pessoas por domicílio, o pior perfil domiciliar do Top 15 deste cenário).</div>
         </details>
       </div>
     </main>
@@ -1258,7 +1360,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <li>Um índice de referência interno da própria base de geomarketing: não é uma metodologia aberta/auditável — usado só como checagem cruzada de plausibilidade.</li>
     <li>Segurança pública (Bloco F): sem fonte de dado compatível nesta rodada.</li>
   </ul>
-  <div class="callout"><p><strong>Decisão sobre o Bloco E (set/2026).</strong> Até esta rodada, o Bloco E entrava com peso de 20% e direção "menor é melhor" (mais lavanderias já instaladas = bairro menos atrativo). A consultora questionou essa direção: como o cliente de lavanderia self-service tem baixa lealdade de marca, uma alta concentração poderia sinalizar demanda validada, não saturação. Três checagens testaram a hipótese: (1) o indicador correlaciona 0,66 com renda e 0,40 com comércio, mas só 0,29 com % domicílios unipessoais (o driver estrutural do índice) — sinal de que é redundante com outros blocos, não uma medida independente de demanda; (2) usando o universo completo de 244 lavanderias registradas (não só as 5 redes nacionais), 65% dos bairros com lavanderia têm 2 ou mais coexistindo, mas essa coexistência não vem acompanhada de negócios mais duradouros (correlação de ~0 entre nº de lavanderias e tempo médio de funcionamento) — o achado inicial de "redes se agrupando em bairros bons" não se sustentou com a base completa; (3) invertendo a direção do indicador ("maior é melhor"), o ranking resultante tem Spearman de apenas 0,49 com o atual, puxado por bairros pequenos com 1-2 lavanderias sobre base pequena — a mesma instabilidade que motivou o piso mínimo (§3). Nenhuma das duas direções teve lastro suficiente; a decisão foi retirar o Bloco E do peso e mantê-lo como contexto (mesmo tratamento do multicritério Economapas e do comércio OSM, acima). Detalhamento completo no documento de entrega e no log do projeto.</p></div>
+  <div class="callout"><p><strong>Decisão sobre o Bloco E (set/2026).</strong> Até esta rodada, o Bloco E entrava com peso de 20% e direção "menor é melhor" (mais lavanderias já instaladas = bairro menos atrativo). A consultora questionou essa direção: como o cliente de lavanderia self-service tem baixa lealdade de marca, uma alta concentração poderia sinalizar demanda validada, não saturação. Três checagens testaram a hipótese: (1) o indicador correlaciona 0,66 com renda e 0,40 com comércio, mas só 0,29 com % domicílios unipessoais (o driver estrutural do índice) — sinal de que é redundante com outros blocos, não uma medida independente de demanda; (2) usando o universo completo de 244 lavanderias registradas (não só as 5 redes nacionais), 65% dos bairros com lavanderia têm 2 ou mais coexistindo, mas essa coexistência não vem acompanhada de negócios mais duradouros (correlação de ~0 entre nº de lavanderias e tempo médio de funcionamento) — o achado inicial de "redes se agrupando em bairros bons" não se sustentou com a base completa; (3) invertendo a direção do indicador ("maior é melhor"), o ranking resultante tem Spearman de apenas 0,49 com o atual, puxado por bairros pequenos com 1-2 lavanderias sobre base pequena — a mesma instabilidade que motivou o piso mínimo (§3). Nenhuma das duas direções teve lastro suficiente; a decisão foi retirar o Bloco E do peso e mantê-lo como contexto (mesmo tratamento do multicritério Economapas e do comércio OSM, acima). Detalhamento completo no documento de entrega e no log do projeto.</p>
+  <p style="margin-top:10px"><strong>Segunda página do índice (set/2026).</strong> A pedido da consultora, o dashboard também disponibiliza a aba <strong>IPSM c/ Concorrência</strong>, que recalcula o índice tratando o Bloco E como critério ponderado (direção "menor é melhor" mantida), na mesma estrutura de pesos usada por este projeto antes da decisão acima — A 30% / B 20% / C 10% / D 20% / E 20%. As duas páginas convivem lado a lado como leituras alternativas; esta (Ranking) continua sendo a versão principal/oficial do índice.</p></div>
   <p><strong>Tratamento de dado ausente, e extensão de metodologia desta rodada.</strong> A regra é nunca estimar ou preencher dado ausente — o peso é redistribuído entre os demais indicadores do mesmo bloco, para a unidade afetada. Na versão por zona, nenhuma unidade tinha indicador ausente. Na versão por bairro oficial, o piso mínimo de base (§3) deixa <strong>11 bairros</strong> sem os indicadores dos Blocos D e E — e como esses blocos têm um único indicador cada (100% do peso do bloco), não há "outro indicador do mesmo bloco" para redistribuir. A regra foi estendida de forma consistente: quando um bloco inteiro fica ausente numa linha, seu peso é redistribuído entre os blocos restantes que têm dado naquela linha. Com o Bloco E fora do peso, essa redistribuição afeta hoje só o Bloco D, entre os blocos A, B e C. Os 11 bairros afetados (todos com menos de 1.000 domicílios): Paissandu, Toto, Derby, Jaqueira, Torreão, Pau Ferro, Cidade Universitária, Recife, Santo Antônio, Cabanga e Ilha do Leite — use a busca da aba <strong>Ranking</strong> para localizá-los (marcados com uma nota "abaixo do piso mínimo").</p>
   <div class="callout"><p><strong>Teste de robustez.</strong> Os pesos por bloco foram submetidos a uma simulação de 300 cenários com variação aleatória de até ±20% em cada peso de bloco, já na estrutura sem o Bloco E, usando a mesma lógica de redistribuição descrita acima. Em média, 91,2% dos 10 bairros mais bem colocados permanecem entre os 10 primeiros mesmo com pesos variados (mínimo observado: 80%), 98,9% do Top 15 se mantém em média (mínimo 86,7%), e a correlação de Spearman com o ranking base ficou em 99,55% (mínimo observado: 98,08%) — mais estável do que a estrutura anterior com 5 blocos (98,75%/94,99%). O ranking não depende de forma frágil da distribuição exata de peso escolhida, e retirar o indicador mais instável do índice (Bloco E) tornou a estrutura como um todo mais robusta.</p></div>
 
@@ -1302,6 +1405,24 @@ const BLOCO_E_CONTEXT = {id:'E', name:'Concorrência e saturação (contexto, se
 const DEFAULT_WEIGHTS = {A:37.5, B:25, C:12.5, D:25, aSplit:60};
 let weights = {...DEFAULT_WEIGHTS};
 let zonas = BAIRROS_RAW.map(z => ({...z}));
+
+// Cenário alternativo "IPSM com Concorrência" (aba própria, pedido da consultora em
+// 2026-09-18): reativa a estrutura de pesos que a Ray usava ANTES da decisão de
+// 2026-09-04 de tirar o Bloco E do peso do índice — A30/B20/C10/D20/E20 — como uma
+// segunda página lado a lado com o cenário principal (BLOCKS/weights acima, que
+// continua com o Bloco E fora do peso). Direção do indicador de concorrência
+// inalterada: menor saturação pontua mais (mesmo campo z.n_saturacao já usado como
+// contexto no cenário principal). Ver compute_ipsm_v2_com_concorrencia.py e
+// Construção.md (2026-09-18) para a verificação numérica desta estrutura.
+const BLOCKS_CE = [
+  {id:'A', name:'Adequação domiciliar', w:30, color:'--blk-a'},
+  {id:'B', name:'Demografia e densidade', w:20, color:'--blk-b'},
+  {id:'C', name:'Poder aquisitivo', w:10, color:'--blk-c'},
+  {id:'D', name:'Fluxo comercial', w:20, color:'--blk-d'},
+  {id:'E', name:'Concorrência e saturação', w:20, color:'--blk-e'},
+];
+const DEFAULT_WEIGHTS_CE = {A:30, B:20, C:10, D:20, E:20, aSplit:60};
+let weightsCE = {...DEFAULT_WEIGHTS_CE};
 
 // Mapeamento de campo das 5 principais redes nacionais de lavanderia self-service
 // em Recife (Google Maps e localizadores oficiais, ago/2026) — mesma fonte usada
@@ -1358,6 +1479,42 @@ function computeScores(){
   });
 }
 
+function computeScoresCE(){
+  // Mesma lógica de computeScores(), estendida para 5 blocos (A-E) — ver BLOCKS_CE
+  // acima. z.n_saturacao é o mesmo indicador de contexto do cenário principal (já
+  // com direção invertida: menor concorrência = valor normalizado mais alto), e
+  // fica ausente (null) exatamente nos mesmos bairros abaixo do piso mínimo de base
+  // que afetam o Bloco D — a redistribuição de peso a nível de bloco já generaliza
+  // para qualquer subconjunto de blocos ausentes numa linha, sem precisar de código
+  // extra para o caso de D e E ausentes ao mesmo tempo (ex.: Santo Antônio).
+  zonas.forEach(z => {
+    const contribA = z.n_unip*(weightsCE.aSplit/100) + z.n_pessoasdom*(1-weightsCE.aSplit/100);
+    const present = {
+      A: true, B: true, C: true,
+      D: z.n_comercio !== null && z.n_comercio !== undefined,
+      E: z.n_saturacao !== null && z.n_saturacao !== undefined,
+    };
+    const rawVal = {A: contribA, B: z.n_densidade, C: z.n_renda, D: z.n_comercio, E: z.n_saturacao};
+    let wsumRow = 0;
+    ['A','B','C','D','E'].forEach(k=>{ if(present[k]) wsumRow += weightsCE[k]; });
+    const contribs = {};
+    ['A','B','C','D','E'].forEach(k=>{
+      contribs[k] = (present[k] && wsumRow>0) ? rawVal[k] * (weightsCE[k]/wsumRow) * 100 : 0;
+    });
+    z._contribsCE = contribs;
+    z._blocosAusentesCE = (present.D?0:1) + (present.E?0:1);
+    z.scoreCE = contribs.A + contribs.B + contribs.C + contribs.D + contribs.E;
+  });
+
+  const sortedCE = [...zonas].sort((a,b)=>a.scoreCE-b.scoreCE);
+  const nCE = sortedCE.length;
+  sortedCE.forEach((z,i)=>{ z.percentileCE = (i+1)/nCE; });
+  zonas.forEach(z=>{
+    const p = z.percentileCE;
+    z.classeCE = p>=0.90 ? 'Muito Alto' : p>=0.70 ? 'Alto' : p>=0.40 ? 'Medio' : p>=0.15 ? 'Baixo' : 'Muito Baixo';
+  });
+}
+
 function classBadgeCls(classe){
   const map = {'Muito Alto':'bma','Alto':'ba','Medio':'bm','Baixo':'bb','Muito Baixo':'bmb'};
   return map[classe];
@@ -1396,6 +1553,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if(btn.dataset.tab === 'chart'){ renderBarChart(); renderScatter(); }
     if(btn.dataset.tab === 'map'){ initMap(); refreshMapStyles(); setTimeout(()=>{ if(mapInstance) mapInstance.invalidateSize(); }, 80); }
     if(btn.dataset.tab === 'comp'){ initCompMap(); refreshCompMap(); setTimeout(()=>{ if(compMapInstance) compMapInstance.invalidateSize(); }, 80); }
+    if(btn.dataset.tab === 'rankingce'){ refreshCE(); }
   });
 });
 document.querySelectorAll('.meth-toc a').forEach(a=>{
@@ -1406,43 +1564,45 @@ document.querySelectorAll('.meth-toc a').forEach(a=>{
 
 /* ===================== SIDEBAR (weights) ===================== */
 const SIDEBARS = ['sidebar-ranking','sidebar-chart'];
-function sidebarHTML(sid){
+const SIDEBARS_CE = ['sidebar-rankingce'];
+const BLOCO_LABEL_UNICO = {'B':'Densidade de domicílios/km²','C':'Renda média por domicílio','D':'Comércio (CNAE) por mil domicílios','E':'Lavanderias por mil domicílios (menor = melhor)'};
+function sidebarHTML(sid, blocksArr, weightsObj, scope){
   let h = `<div>
     <div class="sec-title">Total dos pesos dos blocos</div>
     <div class="total-pill">
       <span class="total-label">Soma bruta</span>
       <span class="total-val ok" id="tv_${sid}">100%</span>
-      <button class="reset-btn-inline" data-reset="1">↺ Resetar</button>
+      <button class="reset-btn-inline" data-reset="1" data-scope="${scope}">↺ Resetar</button>
     </div>
   </div>
   <div>
     <div class="sec-title">Ajuste os pesos do IPSM</div>
     <div class="sec-hint">Arraste para simular cenários — tudo recalcula na hora. Os pesos não se reajustam sozinhos entre si: se a "Soma bruta" acima sair de 100%, o cálculo continua correto (cada nota é dividida pela soma dos pesos presentes naquele bairro), mas o indicador muda de cor para avisar que você saiu da configuração oficial. Use ↺ Resetar para voltar aos pesos padrão.</div>
     <div style="display:flex;flex-direction:column;gap:8px">`;
-  BLOCKS.forEach((b,bi)=>{
+  blocksArr.forEach((b,bi)=>{
     h += `<div class="blk-group${bi===0?' open':''}" data-blk="${b.id}">
       <div class="blk-head" data-toggle="${b.id}">
         <span class="blk-caret">▶</span>
         <span class="blk-name">${b.id}. ${b.name}</span>
-        <span class="blk-w" id="bw_${sid}_${b.id}">${weights[b.id]}%</span>
+        <span class="blk-w" id="bw_${sid}_${b.id}">${weightsObj[b.id]}%</span>
       </div>
       <div class="blk-slider-wrap">
-        <input type="range" min="0" max="60" step="1" value="${weights[b.id]}" class="w-slider blk" data-blkw="${b.id}" data-src="${sid}" aria-label="Peso do bloco ${b.name}">
+        <input type="range" min="0" max="60" step="1" value="${weightsObj[b.id]}" class="w-slider blk" data-blkw="${b.id}" data-src="${sid}" data-scope="${scope}" aria-label="Peso do bloco ${b.name}">
       </div>
       <div class="blk-body">`;
     if(b.id === 'A'){
       h += `<div class="blk-sub"><span>Divisão dentro do bloco</span><b id="bs_${sid}_A">100%</b></div>
         <div class="w-item">
-          <div class="w-head"><span class="w-name">% domicílios com 1 morador</span><span class="w-pct" id="iw_${sid}_unip">${weights.aSplit}%</span></div>
-          <input type="range" min="0" max="100" value="${weights.aSplit}" class="w-slider" data-asplit="1" data-src="${sid}" aria-label="Peso de % unipessoais dentro do Bloco A">
+          <div class="w-head"><span class="w-name">% domicílios com 1 morador</span><span class="w-pct" id="iw_${sid}_unip">${weightsObj.aSplit}%</span></div>
+          <input type="range" min="0" max="100" value="${weightsObj.aSplit}" class="w-slider" data-asplit="1" data-src="${sid}" data-scope="${scope}" aria-label="Peso de % unipessoais dentro do Bloco A">
         </div>
         <div class="w-item">
-          <div class="w-head"><span class="w-name">Pessoas por domicílio <em style="color:var(--dim);font-style:normal">(invertido)</em></span><span class="w-pct" id="iw_${sid}_pessoas">${100-weights.aSplit}%</span></div>
-          <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden"><div style="height:100%;width:${100-weights.aSplit}%;background:var(--p2)" id="barpessoas_${sid}"></div></div>
+          <div class="w-head"><span class="w-name">Pessoas por domicílio <em style="color:var(--dim);font-style:normal">(invertido)</em></span><span class="w-pct" id="iw_${sid}_pessoas">${100-weightsObj.aSplit}%</span></div>
+          <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden"><div style="height:100%;width:${100-weightsObj.aSplit}%;background:var(--p2)" id="barpessoas_${sid}"></div></div>
         </div>`;
     } else {
       h += `<div class="blk-sub"><span>Indicador único do bloco</span><b>100%</b></div>
-        <div class="w-item"><div class="w-head"><span class="w-name">${{'B':'Densidade de domicílios/km²','C':'Renda média por domicílio','D':'Comércio (CNAE) por mil domicílios'}[b.id]}</span><span class="w-pct">100%</span></div></div>`;
+        <div class="w-item"><div class="w-head"><span class="w-name">${BLOCO_LABEL_UNICO[b.id]}</span><span class="w-pct">100%</span></div></div>`;
     }
     h += `</div></div>`;
   });
@@ -1452,7 +1612,11 @@ function sidebarHTML(sid){
 function buildSidebars(){
   SIDEBARS.forEach(sid=>{
     const el = document.getElementById(sid); if(!el) return;
-    el.innerHTML = sidebarHTML(sid);
+    el.innerHTML = sidebarHTML(sid, BLOCKS, weights, 'main');
+  });
+  SIDEBARS_CE.forEach(sid=>{
+    const el = document.getElementById(sid); if(!el) return;
+    el.innerHTML = sidebarHTML(sid, BLOCKS_CE, weightsCE, 'ce');
   });
   bindSidebarEvents();
 }
@@ -1461,36 +1625,49 @@ function bindSidebarEvents(){
     h.addEventListener('click', ()=> h.closest('.blk-group').classList.toggle('open'));
   });
   document.querySelectorAll('.w-slider[data-blkw]').forEach(s=>{
-    s.addEventListener('input', e=>{ weights[e.target.dataset.blkw] = +e.target.value; refresh(); });
+    s.addEventListener('input', e=>{
+      if(e.target.dataset.scope === 'ce'){ weightsCE[e.target.dataset.blkw] = +e.target.value; refreshCE(); }
+      else { weights[e.target.dataset.blkw] = +e.target.value; refresh(); }
+    });
   });
   document.querySelectorAll('.w-slider[data-asplit]').forEach(s=>{
-    s.addEventListener('input', e=>{ weights.aSplit = +e.target.value; refresh(); });
+    s.addEventListener('input', e=>{
+      if(e.target.dataset.scope === 'ce'){ weightsCE.aSplit = +e.target.value; refreshCE(); }
+      else { weights.aSplit = +e.target.value; refresh(); }
+    });
   });
   document.querySelectorAll('[data-reset]').forEach(b=>{
-    b.addEventListener('click', resetWeights);
+    b.addEventListener('click', ()=>{
+      if(b.dataset.scope === 'ce') resetWeightsCE(); else resetWeights();
+    });
   });
 }
 function resetWeights(){ weights = {...DEFAULT_WEIGHTS}; refresh(); }
+function resetWeightsCE(){ weightsCE = {...DEFAULT_WEIGHTS_CE}; refreshCE(); }
 document.getElementById('resetBtn').addEventListener('click', resetWeights);
 
-function syncSliders(){
-  const sum = weights.A+weights.B+weights.C+weights.D;
-  SIDEBARS.forEach(sid=>{
+function syncSlidersFor(sidList, blocksArr, weightsObj){
+  const sum = blocksArr.reduce((s,b)=>s+weightsObj[b.id], 0);
+  sidList.forEach(sid=>{
     const tv = document.getElementById('tv_'+sid); if(!tv) return;
     tv.textContent = sum + '%';
     tv.className = 'total-val ' + (sum===100 ? 'ok' : 'off');
-    BLOCKS.forEach(b=>{
+    blocksArr.forEach(b=>{
       const s = document.querySelector(`.w-slider[data-src="${sid}"][data-blkw="${b.id}"]`);
-      if(s) s.value = weights[b.id];
+      if(s) s.value = weightsObj[b.id];
       const lbl = document.getElementById(`bw_${sid}_${b.id}`);
-      if(lbl) lbl.textContent = weights[b.id]+'%';
+      if(lbl) lbl.textContent = weightsObj[b.id]+'%';
     });
     const asplitSlider = document.querySelector(`.w-slider[data-src="${sid}"][data-asplit]`);
-    if(asplitSlider) asplitSlider.value = weights.aSplit;
-    const iwUnip = document.getElementById(`iw_${sid}_unip`); if(iwUnip) iwUnip.textContent = weights.aSplit+'%';
-    const iwPessoas = document.getElementById(`iw_${sid}_pessoas`); if(iwPessoas) iwPessoas.textContent = (100-weights.aSplit)+'%';
-    const barPessoas = document.getElementById(`barpessoas_${sid}`); if(barPessoas) barPessoas.style.width = (100-weights.aSplit)+'%';
+    if(asplitSlider) asplitSlider.value = weightsObj.aSplit;
+    const iwUnip = document.getElementById(`iw_${sid}_unip`); if(iwUnip) iwUnip.textContent = weightsObj.aSplit+'%';
+    const iwPessoas = document.getElementById(`iw_${sid}_pessoas`); if(iwPessoas) iwPessoas.textContent = (100-weightsObj.aSplit)+'%';
+    const barPessoas = document.getElementById(`barpessoas_${sid}`); if(barPessoas) barPessoas.style.width = (100-weightsObj.aSplit)+'%';
   });
+}
+function syncSliders(){
+  syncSlidersFor(SIDEBARS, BLOCKS, weights);
+  syncSlidersFor(SIDEBARS_CE, BLOCKS_CE, weightsCE);
 }
 
 /* ===================== TOOLTIP ===================== */
@@ -1533,6 +1710,32 @@ function renderTop5(){
     <div class="t5-uf">Cód. ${z.id} · ${z.domicilios.toLocaleString('pt-BR')} domicílios${z._blocosAusentes ? ' · piso mínimo' : ''}</div>
     <div class="t5-score num-f">${z.score.toFixed(1)}</div>
     <span class="badge ${classBadgeCls(z.classe)}">${classLabel(z.classe)}</span>
+  </div>`).join('');
+}
+function renderKPIsCE(){
+  const g = document.getElementById('kpiGridCE'); if(!g) return;
+  const counts = {'Muito Alto':0,'Alto':0,'Medio':0,'Baixo':0,'Muito Baixo':0};
+  zonas.forEach(z=>counts[z.classeCE]++);
+  const med = median(zonas.map(z=>z.scoreCE));
+  const cards = [
+    {lbl:'Bairros', val:zonas.length, sub:'total em Recife', cls:''},
+    {lbl:'Nota mediana', val:med.toFixed(1), sub:'de 94 bairros', cls:''},
+    {lbl:'Muito Alto', val:counts['Muito Alto'], sub:'≥ percentil 90', cls:'cma'},
+    {lbl:'Alto', val:counts['Alto'], sub:'percentil 70–90', cls:'ca'},
+    {lbl:'Médio', val:counts['Medio'], sub:'percentil 40–70', cls:'cm'},
+    {lbl:'Baixo + Muito Baixo', val:counts['Baixo']+counts['Muito Baixo'], sub:'percentil < 40', cls:'cb'},
+  ];
+  g.innerHTML = cards.map(c=>`<div class="kpi-card ${c.cls}"><div class="kpi-lbl">${c.lbl}</div><div class="kpi-val num-f">${c.val}</div><div class="kpi-sub">${c.sub}</div></div>`).join('');
+}
+function renderTop5CE(){
+  const el = document.getElementById('top5CE'); if(!el) return;
+  const f = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE).slice(0,5);
+  el.innerHTML = f.map((z,i)=>`<div class="t5-card r${i+1}">
+    <div class="t5-rank">#${i+1}</div>
+    <div class="t5-name">${z.nome}</div>
+    <div class="t5-uf">Cód. ${z.id} · ${z.domicilios.toLocaleString('pt-BR')} domicílios${z._blocosAusentesCE ? ' · piso mínimo' : ''}</div>
+    <div class="t5-score num-f">${z.scoreCE.toFixed(1)}</div>
+    <span class="badge ${classBadgeCls(z.classeCE)}">${classLabel(z.classeCE)}</span>
   </div>`).join('');
 }
 
@@ -2149,6 +2352,75 @@ function renderRankingTable(){
   }).join('');
 }
 
+/* ===================== RANKING TABLE (IPSM COM CONCORRÊNCIA) ===================== */
+let rankingSortCE = {key:'scoreCE', dir:'desc'};
+let rankingFilterCE = '';
+let classFiltersCE = new Set();
+function renderFilterRowCE(){
+  const row = document.getElementById('fRowCE'); if(!row) return;
+  row.innerHTML = CLASS_ORDER.map(c=>`<button class="f-btn ${CLASS_FBTN[c]} ${classFiltersCE.has(c)?'on':''}" data-cls="${c}">${classLabel(c)}</button>`).join('');
+  row.querySelectorAll('.f-btn').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const c = b.dataset.cls;
+      classFiltersCE.has(c) ? classFiltersCE.delete(c) : classFiltersCE.add(c);
+      renderFilterRowCE();
+      renderRankingTableCE();
+    });
+  });
+}
+const R_COLS_CE = [
+  {k:'rankCE', l:'#'}, {k:'nome', l:'Bairro'}, {k:'scoreCE', l:'Nota'}, {k:'classeCE', l:'Classificação'},
+  {k:'composicao', l:'Composição'}, {k:'domicilios', l:'Domicílios'},
+];
+function renderRankingHeadCE(){
+  const thead = document.getElementById('tHeadCE'); if(!thead) return;
+  thead.innerHTML = '<tr>' + R_COLS_CE.map(c=>`<th data-col="${c.k}" class="${c.k==='scoreCE'||c.k==='domicilios'?'num':''} ${rankingSortCE.key===c.k?'sorted':''}">${c.l} ${rankingSortCE.key===c.k ? (rankingSortCE.dir==='asc'?'▴':'▾') : ''}</th>`).join('') + '</tr>';
+  thead.querySelectorAll('th').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const key = th.dataset.col;
+      if(rankingSortCE.key === key) rankingSortCE.dir = rankingSortCE.dir==='asc'?'desc':'asc';
+      else { rankingSortCE.key = key; rankingSortCE.dir = 'desc'; }
+      renderRankingTableCE();
+    });
+  });
+}
+function renderRankingTableCE(){
+  renderRankingHeadCE();
+  const el = document.getElementById('tBodyCE'); if(!el) return;
+  const sorted = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE);
+  sorted.forEach((z,i)=>{ z.rankCE = i+1; });
+
+  let rows = sorted.filter(z => z.nome.toLowerCase().includes(rankingFilterCE.toLowerCase()));
+  if(classFiltersCE.size) rows = rows.filter(z=>classFiltersCE.has(z.classeCE));
+  rows.sort((a,b)=>{
+    let av = rankingSortCE.key==='composicao' ? a.scoreCE : a[rankingSortCE.key];
+    let bv = rankingSortCE.key==='composicao' ? b.scoreCE : b[rankingSortCE.key];
+    if(typeof av === 'string') return rankingSortCE.dir==='asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    return rankingSortCE.dir==='asc' ? av-bv : bv-av;
+  });
+
+  document.getElementById('tCountCE').textContent = rows.length + ' bairro' + (rows.length===1?'':'s');
+  const maxS = sorted.length ? sorted[0].scoreCE : 1;
+  el.innerHTML = rows.map(z=>{
+    const segs = BLOCKS_CE.map(b=>{
+      const pct = (z._contribsCE[b.id]/maxS*100) || 0;
+      return `<span class="bar-f" style="width:${pct}%; background:var(${b.color})" title="${b.id}: ${z._contribsCE[b.id].toFixed(1)} pts"></span>`;
+    }).join('');
+    const flagBits = [];
+    if(z.n_comercio === null || z.n_comercio === undefined) flagBits.push('Bloco D');
+    if(z.n_saturacao === null || z.n_saturacao === undefined) flagBits.push('Bloco E');
+    const flag = flagBits.length ? `<span class="flag">abaixo do piso mínimo de base — ${flagBits.join(' e ')} ausente(s) (peso redistribuído)</span>` : '';
+    return `<tr>
+      <td class="rk">${z.rankCE}</td>
+      <td class="bn">${z.nome}${flag}</td>
+      <td class="num sc">${z.scoreCE.toFixed(1)}</td>
+      <td><span class="badge ${classBadgeCls(z.classeCE)}">${classLabel(z.classeCE)}</span></td>
+      <td><div class="bar-w">${segs}</div></td>
+      <td class="num">${z.domicilios.toLocaleString('pt-BR')}</td>
+    </tr>`;
+  }).join('');
+}
+
 /* ===================== INDICADORES TABLE ===================== */
 const D_COLS = [
   {k:'nome', l:'Bairro'}, {k:'pct_unip', l:'% Unipessoais'}, {k:'pessoas_dom', l:'Pessoas/dom.'},
@@ -2191,6 +2463,7 @@ function renderIndicadoresTable(){
 
 document.getElementById('searchInput').addEventListener('input', e=>{ rankingFilter = e.target.value; renderRankingTable(); });
 document.getElementById('dSearch').addEventListener('input', e=>{ indicadoresFilter = e.target.value; renderIndicadoresTable(); });
+document.getElementById('searchInputCE').addEventListener('input', e=>{ rankingFilterCE = e.target.value; renderRankingTableCE(); });
 
 /* ===================== CSV EXPORT ===================== */
 let downloadsNS = null;
@@ -2240,6 +2513,49 @@ document.getElementById('exportBtn').addEventListener('click', async ()=>{
   }
 });
 
+function buildCsvCE(){
+  const sorted = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE);
+  const header = ['rank','bairro_id','bairro_nome','score_com_concorrencia','classificacao','blocos_ausentes','peso_A','peso_B','peso_C','peso_D','peso_E','peso_A_unipessoais_pct','domicilios','lavanderias_por_mil_domicilios'];
+  const wsum = weightsCE.A+weightsCE.B+weightsCE.C+weightsCE.D+weightsCE.E;
+  const fmt = v => String(v).replace('.', ',');
+  const lines = [header.join(';')];
+  sorted.forEach((z,i)=>{
+    lines.push([
+      i+1, z.id, `"${z.nome.replace(/"/g,'""')}"`, fmt(z.scoreCE.toFixed(2)), classLabel(z.classeCE), z._blocosAusentesCE||0,
+      fmt((weightsCE.A/wsum*100).toFixed(1)), fmt((weightsCE.B/wsum*100).toFixed(1)), fmt((weightsCE.C/wsum*100).toFixed(1)),
+      fmt((weightsCE.D/wsum*100).toFixed(1)), fmt((weightsCE.E/wsum*100).toFixed(1)), weightsCE.aSplit, z.domicilios, fmt(z.saturacao.toFixed(3))
+    ].join(';'));
+  });
+  return '﻿' + lines.join('\r\n');
+}
+document.getElementById('exportBtnCE').addEventListener('click', async ()=>{
+  const csv = buildCsvCE();
+  const btn = document.getElementById('exportBtnCE');
+  const original = btn.textContent;
+  if (downloadsNS) {
+    try {
+      await downloadsNS.save({ filename: 'ipsm_becker_ranking_com_concorrencia.csv', data: csv });
+      btn.textContent = 'Exportado ✓';
+    } catch (err) {
+      if (err && err.code === 'declined') { btn.textContent = original; return; }
+      btn.textContent = 'Não foi possível exportar';
+    }
+    setTimeout(()=>{ btn.textContent = original; }, 2200);
+    return;
+  }
+  try {
+    const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'ipsm_becker_ranking_com_concorrencia.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    btn.textContent = 'Exportação indisponível nesta visualização';
+    setTimeout(()=>{ btn.textContent = original; }, 2500);
+  }
+});
+
 /* ===================== REFRESH LOOP ===================== */
 function refresh(){
   computeScores();
@@ -2253,12 +2569,21 @@ function refresh(){
   const mapPage = document.getElementById('page-map');
   if(mapPage.classList.contains('active') && mapInstance){ refreshMapStyles(); }
 }
+function refreshCE(){
+  computeScoresCE();
+  syncSliders();
+  renderKPIsCE();
+  renderTop5CE();
+  renderRankingTableCE();
+}
 
 buildSidebars();
 renderBlockLegend();
 renderFilterRow();
+renderFilterRowCE();
 buildMapControls();
 buildCompControls();
 refresh();
+refreshCE();
 validateAgainstPython();
 </script>
