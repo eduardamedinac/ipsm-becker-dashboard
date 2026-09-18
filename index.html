@@ -138,6 +138,7 @@ body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--text);min-
 .bn{font-weight:600;font-size:12.5px}
 .bn .zid{color:var(--dim);font-family:"DM Mono",monospace;font-size:10.5px;margin-right:6px}
 .bn .flag{display:block;color:var(--dim);font-size:9.5px;font-family:"DM Mono",monospace;margin-top:2px}
+.bn .flag-viz{color:#E0785A;font-weight:600}
 .num{font-family:"DM Mono",monospace;font-size:11.5px;text-align:right;font-variant-numeric:tabular-nums}
 .sc{font-family:"DM Mono",monospace;font-size:13px;font-weight:700}
 .bar-w{width:64px;height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;display:flex}
@@ -982,6 +983,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <div class="layout">
     <aside class="sidebar" id="sidebar-ranking"></aside>
     <main class="content">
+      <div class="callout">
+        <p><b>Piso de mercado aplicado.</b> Esta tabela já exclui bairros com 5.000 domicílios ou menos — mercado pequeno demais para sustentar uma unidade, mesmo com nota alta no índice (Metodologia §6, "Piso de mercado e vizinhança no Top 15"). Consulte a aba <b>Dados Detalhados</b> para ver os 94 bairros sem esse recorte.</p>
+      </div>
       <div class="kpi-grid" id="kpiGrid"></div>
       <div>
         <div class="sec-title" style="margin-bottom:8px">Top 5 bairros</div>
@@ -1003,67 +1007,67 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="just-wrap">
         <div class="just-top">
           <div class="just-top-title">Por que esses bairros lideram — justificativa por bairro (Top 15)</div>
-          <div class="just-top-desc">Leitura numérica de cada bairro do Top 15 sob os pesos padrão da Ray (A 37,5% / B 25% / C 12,5% / D 25%, Bloco E como contexto sem peso). Se os pesos ao lado forem alterados, o ranking na tabela acima recalcula na hora, mas os textos abaixo continuam descrevendo os 15 bairros do cenário padrão — clique em cada um para ver a justificativa completa.</div>
+          <div class="just-top-desc">Leitura numérica de cada bairro do Top 15 sob os pesos padrão da Ray (A 37,5% / B 25% / C 12,5% / D 25%, Bloco E como contexto sem peso), já com o piso de mercado de 5.000 domicílios aplicado (Metodologia §6). Se os pesos ao lado forem alterados, o ranking na tabela acima recalcula na hora, mas os textos abaixo continuam descrevendo os 15 bairros deste cenário padrão — clique em cada um para ver a justificativa completa.</div>
         </div>
         <details class="just-item">
           <summary><span class="just-rank">1º</span><span class="just-name">Boa Vista</span><span class="just-score">53,6 · Muito Alto</span></summary>
-          <div class="just-body">Assume a liderança combinando a 2ª maior taxa de domicílios unipessoais do Top 15 (43,9%, atrás só de Soledade) com densidade domiciliar acima da mediana (5.448 domicílios/km²) — o perfil de adequação domiciliar mais consistente do grupo, mesmo com renda média mais baixa que a maioria dos pares (R$ 8.742). Não há nenhuma unidade das 5 redes nacionais mapeadas no bairro, mas o levantamento completo identifica 8 lavanderias independentes registradas (0,86 por mil domicílios — Bloco E, contexto, sem peso no score).</div>
+          <div class="just-body">Segue na liderança: tem a maior taxa de domicílios unipessoais do Top 15 (43,9%) e densidade acima da mediana (5.448 domicílios/km²) — o perfil de adequação domiciliar mais consistente do grupo, mesmo com a 9ª renda média do Top 15 (R$ 8.742, abaixo da maioria dos pares). Não há nenhuma unidade das 5 redes nacionais mapeadas no bairro, mas o levantamento completo identifica 8 lavanderias independentes registradas (0,86 por mil domicílios — Bloco E, contexto, sem peso no score).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">2º</span><span class="just-name">Santo Antônio</span><span class="just-score">52,5 · Muito Alto</span></summary>
-          <div class="just-body">O caso mais atípico do Top 15: a maior taxa de domicílios unipessoais entre os 94 bairros (68,4%) e a maior densidade de comércio por domicílio de toda a cidade (2.567 estabelecimentos por mil domicílios) — mas apenas 462 domicílios, abaixo do piso mínimo de base (Metodologia §3), então o score usa só os Blocos A, B e C, com peso redistribuído. É um bairro pequeno e denso do centro histórico; a leitura de oportunidade aqui deve ser qualitativa (poucos imóveis residenciais disponíveis para um ponto de loja), não só pelo score.</div>
+          <summary><span class="just-rank">2º</span><span class="just-name">Graças</span><span class="just-score">47,9 · Muito Alto</span></summary>
+          <div class="just-body">Assume a 2ª posição com a saída de Santo Antônio e Rosarinho do Top 15 pelo piso de mercado (Metodologia §6) — a nota do bairro não mudou. Tem a maior renda média do Top 15 (R$ 27.627) combinada com bom volume de domicílios (10.250) e densidade robusta (7.090/km²) — um público-alvo grande e de alto poder aquisitivo.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">3º</span><span class="just-name">Rosarinho</span><span class="just-score">48,5 · Muito Alto</span></summary>
-          <div class="just-body">Tem a maior densidade domiciliar de toda a cidade (13.941 domicílios/km², quase o dobro do 2º colocado) combinada com renda acima da mediana (R$ 19.739). O comércio de rua é discreto para os padrões do Top 15 (54,1 estabelecimentos por mil domicílios, o mais baixo do grupo) e não há concorrência de rede nacional mapeada — a força do bairro está concentrada nos Blocos A e B.</div>
+          <summary><span class="just-rank">3º</span><span class="just-name">Espinheiro</span><span class="just-score">46,9 · Muito Alto</span></summary>
+          <div class="just-body">Sobe para 3º pelo mesmo motivo. Tem a 2ª maior renda média do Top 15 (R$ 22.147) e densidade acima da mediana (7.420/km²), mesmo sendo um dos poucos bairros do grupo com concorrência de rede nacional já instalada (Laundromat e OMO, 2 unidades mapeadas). Com 5.654 domicílios, é o bairro do Top 15 com a menor folga acima do novo piso de mercado, depois de Coqueiral.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">4º</span><span class="just-name">Graças</span><span class="just-score">47,9 · Muito Alto</span></summary>
-          <div class="just-body">Combina renda entre as mais altas do Top 15 (R$ 27.627, 4ª colocada) com o 2º maior número absoluto de domicílios do grupo (10.250) e densidade robusta (7.090/km²) — um volume grande de público-alvo qualificado, não só um perfil de renda favorável.</div>
+          <summary><span class="just-rank">4º</span><span class="just-name">Boa Viagem</span><span class="just-score">44,4 · Muito Alto</span></summary>
+          <div class="just-body">Sobe da 10ª para a 4ª posição com a saída de bairros menores à frente dele — a nota não mudou. É o maior bairro de Recife em domicílios (69.527, quase 7× o de Espinheiro), mesmo sendo o mais heterogêneo internamente do ranking, com renda considerável (R$ 20.282) e densidade e adequação domiciliar acima da mediana. Concentra também, disparado, a maior concorrência de todo o Top 15: as 5 redes nacionais mapeadas (11 unidades) e o maior número absoluto de lavanderias independentes da cidade (62, aba Concorrentes). Sua extensão faz o score representar uma média de sub-áreas com potencial provavelmente bem diferente entre si — um ponto de atenção para uma eventual análise de raio/isócrona dentro do bairro.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">5º</span><span class="just-name">Espinheiro</span><span class="just-score">46,9 · Muito Alto</span></summary>
-          <div class="just-body">Renda alta (R$ 22.147) e densidade acima da média (7.420/km²) sustentam a posição mesmo sendo um dos poucos bairros do Top 15 com concorrência de rede nacional já instalada (Laundromat e OMO, 2 unidades mapeadas) — a força dos demais blocos compensa esse dado de contexto.</div>
+          <summary><span class="just-rank">5º</span><span class="just-name">Encruzilhada</span><span class="just-score">40,3 · Alto</span></summary>
+          <div class="just-body">Sobe da última posição do Top 15 anterior (15º) para 5º, com a saída de dez bairros pequenos pelo piso de mercado — a nota não mudou. Perfil equilibrado: densidade alta (8.301 dom./km²), volume de domicílios relevante (8.453) e renda mediana (R$ 16.198) — sem se destacar isoladamente em nenhum indicador, mas consistente em todos. É vizinho geométrico de Espinheiro (fronteira compartilhada, cerca de 0,9 km entre os centros — ver selo de vizinhança na tabela).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">6º</span><span class="just-name">Parnamirim</span><span class="just-score">46,7 · Muito Alto</span></summary>
-          <div class="just-body">2ª maior renda média do Top 15 (R$ 29.748, atrás só de Casa Forte). É também, entre os bairros do Top 15 que não estão abaixo do piso mínimo, o que tem a maior saturação de lavanderias por mil domicílios (1,80 — Bloco E, dado de contexto, sem peso no score) — um sinal de que a demanda ali já atrai operadores, mesmo sem que isso puxe ou derrube a posição no ranking.</div>
+          <summary><span class="just-rank">6º</span><span class="just-name">Madalena</span><span class="just-score">38,7 · Alto</span></summary>
+          <div class="just-body">Entra no Top 15 com a saída dos bairros abaixo do piso de mercado. Tem um dos maiores volumes de domicílios do grupo (13.145) e renda na média do Top 15 (R$ 16.189), mas comércio de rua discreto (89,7 por mil domicílios, entre os mais baixos do grupo) e já concentra 11 lavanderias registradas — a 3ª maior contagem absoluta da cidade, atrás só de Boa Viagem e Várzea, incluindo 2 unidades de redes nacionais (60 Minutos e Laundromat). É por isso que a posição piora bastante quando o critério de concorrência entra: cai para 12º na aba IPSM c/ Concorrência.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">7º</span><span class="just-name">Soledade</span><span class="just-score">46,3 · Muito Alto</span></summary>
-          <div class="just-body">Tem a maior taxa de domicílios unipessoais do Top 15 depois do caso atípico de Santo Antônio (44,8%), apesar da renda média baixa (R$ 7.692) — reforça que adequação domiciliar pesa mais que renda na estrutura de pesos atual (Metodologia §6). Nenhuma lavanderia registrada no bairro.</div>
+          <summary><span class="just-rank">7º</span><span class="just-name">Torre</span><span class="just-score">38,6 · Alto</span></summary>
+          <div class="just-body">Entra no Top 15 puxado pela densidade domiciliar (8.833 dom./km², a 3ª maior do grupo) e por um volume de domicílios robusto (10.529). Renda (R$ 13.041) e comércio de rua (73,6 por mil domicílios) ficam na média-baixa do grupo. Tem 1 unidade de rede nacional mapeada (OMO) — concorrência moderada dentro do Top 15, que não o impede de subir para 5º na aba IPSM c/ Concorrência. É vizinho geométrico de Graças (cerca de 1,1 km entre os centros).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">8º</span><span class="just-name">São José</span><span class="just-score">45,6 · Muito Alto</span></summary>
-          <div class="just-body">Tem a 5ª maior densidade de comércio por domicílio entre os 94 bairros (372,7 por mil domicílios) — reflexo de ser parte do centro histórico/comercial do Recife — compensando a menor renda média de todo o Top 15 (R$ 3.983).</div>
+          <summary><span class="just-rank">8º</span><span class="just-name">Casa Amarela</span><span class="just-score">37,5 · Alto</span></summary>
+          <div class="just-body">Entra no Top 15 com um dos maiores volumes de domicílios do grupo (15.872) e renda pouco acima da mediana do Top 15 (R$ 13.099). O perfil de adequação domiciliar é mais modesto (23,6% de domicílios unipessoais, entre os mais baixos do grupo) — compensado pelo tamanho do mercado. Tem 7 lavanderias registradas, 2 delas de redes nacionais (60 Minutos e Lavô).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">9º</span><span class="just-name">Aflitos</span><span class="just-score">45,3 · Muito Alto</span></summary>
-          <div class="just-body">Renda alta (R$ 25.575) e densidade acima da mediana (8.324/km²) se combinam com zero lavanderias registradas no bairro — bom perfil socioeconômico e baixíssima saturação já instalada, um dado de contexto relevante para a leitura qualitativa mesmo sem peso no score.</div>
+          <summary><span class="just-rank">9º</span><span class="just-name">Tamarineira</span><span class="just-score">35,7 · Alto</span></summary>
+          <div class="just-body">Entra no Top 15 pela combinação de renda alta (R$ 20.152, 4ª maior do grupo) com densidade acima da mediana. É o bairro do grupo com menor volume de domicílios depois de Espinheiro e Coqueiral (6.457) e não tem nenhuma unidade de rede nacional mapeada, embora o levantamento completo identifique 5 lavanderias independentes registradas.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">10º</span><span class="just-name">Boa Viagem</span><span class="just-score">44,4 · Muito Alto</span></summary>
-          <div class="just-body">O maior bairro de Recife em domicílios (69.527, quase 2× o 2º colocado da cidade) — entra no Top 15 mesmo sendo o bairro mais heterogêneo internamente do ranking, com renda média de R$ 20.282 e densidade e adequação domiciliar acima da mediana. Concentra também, disparado, a maior presença de concorrência de toda a cidade: as 5 redes nacionais mapeadas (11 unidades) e o maior número absoluto de lavanderias independentes (62, aba Concorrentes) — sinal de demanda validada, mas também de disputa mais acirrada por ponto. Sua extensão faz com que o score represente uma média de sub-áreas com potencial provavelmente bem diferente entre si (orla × interior do bairro, por exemplo) — um ponto de atenção para a próxima etapa do projeto (análise de raio/isócrona).</div>
+          <summary><span class="just-rank">10º</span><span class="just-name">Pina</span><span class="just-score">35,7 · Alto</span></summary>
+          <div class="just-body">Praticamente empatado com Tamarineira — tem a 2ª maior taxa de domicílios unipessoais do grupo (30,6%) e o 2º maior comércio de rua do Top 15 (201 por mil domicílios), mas a menor densidade domiciliar do grupo (2.461 dom./km²) — território mais horizontal, com renda também mais modesta (R$ 6.575). Tem 1 unidade de rede nacional mapeada (60 Minutos).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">11º</span><span class="just-name">Jaqueira</span><span class="just-score">43,9 · Alto</span></summary>
-          <div class="just-body">3ª maior renda média do Top 15 (R$ 29.534) e zero lavanderias registradas no bairro — mas só 754 domicílios, abaixo do piso mínimo de base, então o score usa só os Blocos A, B e C, com peso redistribuído.</div>
+          <summary><span class="just-rank">11º</span><span class="just-name">Coqueiral</span><span class="just-score">31,6 · Médio</span></summary>
+          <div class="just-body">Entra no Top 15 com a 2ª maior densidade domiciliar do grupo (8.836 dom./km²) e nenhuma lavanderia registrada (a menor concorrência do Top 15) — mas é o bairro com a menor renda média do grupo (R$ 3.024) e o menor comércio de rua (51,1 por mil domicílios). Com apenas 5.069 domicílios, é o bairro do Top 15 mais próximo do novo piso de mercado.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">12º</span><span class="just-name">Ilha do Leite</span><span class="just-score">43,8 · Alto</span></summary>
-          <div class="just-body">2ª maior densidade de comércio do Top 15 (466,9 por mil domicílios) e uma das maiores taxas de saturação de lavanderias por mil domicílios entre os 94 bairros (2,32 — Bloco E, dado de contexto). Tem apenas 861 domicílios, abaixo do piso mínimo de base, então o score usa só os Blocos A, B e C, com peso redistribuído — mesmo caso de Jaqueira e Santo Antônio.</div>
+          <summary><span class="just-rank">12º</span><span class="just-name">Ipsep</span><span class="just-score">30,1 · Médio</span></summary>
+          <div class="just-body">Entra no Top 15 com um perfil equilibrado, sem se destacar isoladamente em nenhum indicador — densidade (5.771 dom./km²) e renda (R$ 6.928) na média do grupo, comércio de rua um pouco acima da média (104,2 por mil domicílios). Tem 3 lavanderias registradas, 1 delas de rede nacional (60 Minutos).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">13º</span><span class="just-name">Casa Forte</span><span class="just-score">43,4 · Alto</span></summary>
-          <div class="just-body">Tem a maior renda média de toda a cidade (R$ 29.969) combinada com densidade acima da mediana (5.265/km²) — o perfil de alto poder aquisitivo típico da Zona Norte, sem concorrência de rede nacional relevante (1 unidade mapeada, Lavô).</div>
+          <summary><span class="just-rank">13º</span><span class="just-name">Água Fria</span><span class="just-score">30,0 · Médio</span></summary>
+          <div class="just-body">Entra no Top 15 com a maior densidade domiciliar do grupo (8.895 dom./km²) e um dos maiores volumes de domicílios (17.198) — mas a menor taxa de domicílios unipessoais do Top 15 (20,6%) e renda baixa (R$ 3.682) seguram a nota. Tem 3 lavanderias registradas, 1 delas de rede nacional.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">14º</span><span class="just-name">Torreão</span><span class="just-score">40,4 · Alto</span></summary>
-          <div class="just-body">Bairro pequeno (883 domicílios, abaixo do piso mínimo de base — score usa só os Blocos A, B e C) e sem nenhuma lavanderia registrada, com renda mediana (R$ 17.423) — entra no Top 15 pela combinação de adequação domiciliar e densidade, sem concorrência instalada disputando o mesmo público.</div>
+          <summary><span class="just-rank">14º</span><span class="just-name">Arruda</span><span class="just-score">29,7 · Médio</span></summary>
+          <div class="just-body">Fecha quase o Top 15 sem nenhuma lavanderia registrada (a menor concorrência do grupo, empatado com Coqueiral) e com indicadores medianos nos demais blocos — renda (R$ 5.704) e comércio de rua (69,4 por mil domicílios) discretos, densidade (6.737 dom./km²) na média do grupo.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">15º</span><span class="just-name">Encruzilhada</span><span class="just-score">40,3 · Alto</span></summary>
-          <div class="just-body">Fecha o Top 15 com um perfil equilibrado: densidade alta (8.301/km², 3ª do grupo), volume de domicílios relevante (8.453, 4º do grupo) e renda mediana (R$ 16.198) — sem se destacar isoladamente em nenhum bloco, mas consistente nos quatro.</div>
+          <summary><span class="just-rank">15º</span><span class="just-name">Santo Amaro</span><span class="just-score">29,2 · Médio</span></summary>
+          <div class="just-body">Fecha o Top 15 com uma taxa de domicílios unipessoais relativamente alta para o grupo (27,6%, próxima da de Graças) e comércio de rua acima da mediana (121,2 por mil domicílios) — mas densidade baixa para os padrões do Top 15 (3.625 dom./km², a 2ª mais baixa do grupo) e renda entre as mais baixas (R$ 5.665) seguram a posição.</div>
         </details>
       </div>
     </main>
@@ -1076,8 +1080,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <aside class="sidebar" id="sidebar-rankingce"></aside>
     <main class="content">
       <div class="callout">
-        <p><b>Cenário alternativo — Bloco E entra com peso.</b> Esta página recalcula o IPSM tratando a concorrência/saturação (Bloco E) como um critério ponderado, em vez de contexto sem peso. Usa a mesma estrutura de pesos que a Ray aplicou no projeto antes da decisão de 2026-09-04 de tirar o Bloco E do índice — A 30% / B 20% / C 10% / D 20% / E 20% — reativada aqui a pedido da consultora como uma segunda leitura, lado a lado com a página <b>Ranking</b> (que continua sendo a versão principal/oficial do índice, sem concorrência no peso).</p>
-        <p>Direção do indicador: <b>menos concorrência registrada pontua mais</b> (mesma direção já usada quando o Bloco E tinha peso — ver Metodologia §6, "Decisão sobre o Bloco E"). Essa estrutura já foi testada quanto à robustez: correlação de Spearman média de 0,988 e sobreposição de Top 15 de 90,9% sob perturbação de ±20% nos pesos (300 simulações) — mesmo nível de robustez documentado para a versão principal.</p>
+        <p><b>Cenário alternativo — Bloco E entra com peso.</b> Esta página recalcula o IPSM tratando a concorrência/saturação (Bloco E) como um critério ponderado, em vez de contexto sem peso.</p>
+        <p>Direção do indicador: <b>menos concorrência registrada pontua mais</b>.</p>
+        <p><b>Piso de mercado aplicado.</b> Assim como na aba Ranking, esta tabela já exclui bairros com 5.000 domicílios ou menos.</p>
       </div>
       <div class="kpi-grid" id="kpiGridCE"></div>
       <div>
@@ -1103,67 +1108,67 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="just-wrap">
         <div class="just-top">
           <div class="just-top-title">Por que esses bairros lideram aqui — Top 15 com concorrência ponderada</div>
-          <div class="just-top-desc">Leitura numérica de cada bairro do Top 15 deste cenário, sob os pesos padrão A 30% / B 20% / C 10% / D 20% / E 20%. Se os pesos ao lado forem alterados, o ranking na tabela acima recalcula na hora, mas os textos abaixo continuam descrevendo os 15 bairros do cenário padrão. 4 bairros deste Top 15 não aparecem no Top 15 da página principal (Bomba do Hemetério, Morro da Conceição, Torre e Zumbi, marcados abaixo) — entram aqui puxados pela ausência de concorrência registrada, que nesta página tem peso.</div>
+          <div class="just-top-desc">Leitura numérica de cada bairro do Top 15 deste cenário, sob os pesos padrão A 30% / B 20% / C 10% / D 20% / E 20%, já com o piso de mercado de 5.000 domicílios aplicado (Metodologia §6). Se os pesos ao lado forem alterados, o ranking na tabela acima recalcula na hora, mas os textos abaixo continuam descrevendo os 15 bairros deste cenário padrão. 3 bairros deste Top 15 não aparecem no Top 15 da página principal (Linha do Tiro, Nova Descoberta e Vasco da Gama, marcados abaixo) — entram aqui puxados quase inteiramente pela ausência de concorrência registrada, que nesta página tem peso.</div>
         </div>
         <details class="just-item">
-          <summary><span class="just-rank">1º</span><span class="just-name">Soledade</span><span class="just-score">57,0 · Muito Alto</span></summary>
-          <div class="just-body">Assume a liderança neste cenário (era 3º na página principal, sem concorrência) somando um perfil domiciliar muito forte — 2ª maior taxa de unipessoais entre os 94 bairros (44,8%) e 2º menor número de pessoas por domicílio (1,28) — a zero lavanderias registradas no CNAE, o valor mais baixo possível de saturação (empatado em 1º lugar no critério "menor é melhor").</div>
+          <summary><span class="just-rank">1º</span><span class="just-name">Boa Vista</span><span class="just-score">53,4 · Muito Alto</span></summary>
+          <div class="just-body">Segue na liderança também neste cenário, com nota praticamente igual à da página principal (53,6 → 53,4) apesar de ter uma concorrência relativamente alta dentro do Top 15 (12º menor de 15 em concorrência) — 0,86 lavanderias por mil domicílios. A força em adequação domiciliar (maior taxa de unipessoais do grupo, 43,9%) compensa.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">2º</span><span class="just-name">Aflitos</span><span class="just-score">56,2 · Muito Alto</span></summary>
-          <div class="just-body">Sobe da 9ª posição da página principal para 2º lugar aqui — combina a 5ª maior renda média da cidade (R$ 25.575) e densidade acima da mediana (8.324 dom./km², 13º maior) com zero lavanderias registradas, o mesmo empate em 1º lugar em menor concorrência que beneficia Soledade.</div>
+          <summary><span class="just-rank">2º</span><span class="just-name">Graças</span><span class="just-score">48,6 · Muito Alto</span></summary>
+          <div class="just-body">Mantém a 2ª posição nos dois cenários, com nota um pouco maior aqui (47,9 → 48,6) apesar de ter uma das concorrências mais instaladas do Top 15 (13º menor de 15) — a maior renda média do grupo (R$ 27.627) compensa.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">3º</span><span class="just-name">São José</span><span class="just-score">53,8 · Muito Alto</span></summary>
-          <div class="just-body">Mantém posição de destaque nos dois cenários — 5ª maior densidade de comércio entre os 94 bairros (372,7 por mil domicílios) e 6ª maior taxa de unipessoais (32,5%). Tem saturação mediana (57ª entre os 94 em menor concorrência) — nem penaliza nem beneficia muito o bairro neste cenário.</div>
+          <summary><span class="just-rank">3º</span><span class="just-name">Espinheiro</span><span class="just-score">47,7 · Muito Alto</span></summary>
+          <div class="just-body">Mantém a 3ª posição nos dois cenários. Renda alta (2ª maior do Top 15) e boa densidade sustentam a posição apesar de ter a 2ª maior concorrência do grupo (Laundromat e OMO, 2 unidades mapeadas).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">4º</span><span class="just-name">Boa Vista</span><span class="just-score">53,4 · Muito Alto</span></summary>
-          <div class="just-body">Era o líder da página principal (53,6); cai para 4º aqui porque tem bastante concorrência já instalada — 0,86 lavanderias por mil domicílios, entre as 15 maiores saturações da cidade (84º lugar de 94 em menor concorrência). Segue no topo puxado pela 3ª maior taxa de unipessoais da cidade (43,9%) e pelo 4º menor número de pessoas por domicílio.</div>
+          <summary><span class="just-rank">4º</span><span class="just-name">Encruzilhada</span><span class="just-score">45,7 · Alto</span></summary>
+          <div class="just-body">Sobe uma posição em relação à página principal (5º → 4º) — densidade (8.301 dom./km²) e renda (R$ 16.198) medianas-altas dentro do Top 15, com concorrência moderada para o grupo (10º menor de 15).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">5º</span><span class="just-name">Rosarinho</span><span class="just-score">52,6 · Muito Alto</span></summary>
-          <div class="just-body">Tem a maior densidade domiciliar entre os 94 bairros (13.941 dom./km²) e a 13ª maior renda média (R$ 19.739) — mas também bastante concorrência instalada (76º lugar de 94 em menor concorrência), o que o mantém no Top 15 sem liderá-lo.</div>
+          <summary><span class="just-rank">5º</span><span class="just-name">Torre</span><span class="just-score">45,6 · Alto</span></summary>
+          <div class="just-body">Sobe da 7ª para a 5ª posição — boa densidade domiciliar (8.833 dom./km², 3ª maior do grupo) e concorrência mediana dentro do Top 15 (8º menor de 15, só 1 unidade de rede nacional mapeada, OMO).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">6º</span><span class="just-name">Santo Antônio</span><span class="just-score">52,5 · Muito Alto</span></summary>
-          <div class="just-body">Maior taxa de unipessoais (68,4%) e maior densidade de comércio (2.567 por mil domicílios) de toda a cidade — mas os dois indicadores "por mil domicílios" que carregam peso neste cenário, Fluxo Comercial (Bloco D) e Concorrência (Bloco E), ficam ausentes pelo piso mínimo de base (462 domicílios, abaixo do limiar de 1.000): o score usa só os Blocos A, B e C, com peso redistribuído entre eles — mesmo tratamento estatístico já aplicado na página principal.</div>
+          <summary><span class="just-rank">6º</span><span class="just-name">Boa Viagem</span><span class="just-score">45,6 · Alto</span></summary>
+          <div class="just-body">Cai da 4ª para a 6ª posição (praticamente empatado com Torre) — concentra a maior concorrência de todo o Top 15 (as 5 redes nacionais mapeadas, 11 unidades, e o maior número absoluto de lavanderias independentes da cidade, 62). O tamanho do mercado (69.527 domicílios, o maior da cidade) segue sendo o principal fator a favor do bairro neste cenário.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">7º</span><span class="just-name">Graças</span><span class="just-score">48,6 · Muito Alto</span></summary>
-          <div class="just-body">4ª maior renda média da cidade (R$ 27.627), mas uma das maiores concorrências já instaladas do Top 15 (85º lugar de 94 em menor concorrência, quase a maior saturação da cidade) — permanece no grupo de liderança pela força de renda e adequação domiciliar, não pela ausência de concorrentes.</div>
+          <summary><span class="just-rank">7º</span><span class="just-name">Coqueiral</span><span class="just-score">45,2 · Alto</span></summary>
+          <div class="just-body">Sobe da 11ª para a 7ª posição — nenhuma lavanderia registrada no bairro (a menor concorrência de todo o Top 15) compensa boa parte da renda baixa (R$ 3.024, a mais baixa do grupo) e do comércio de rua fraco (51,1 por mil domicílios, também o mais baixo).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">8º</span><span class="just-name">Zumbi</span><span class="just-score">48,2 · Muito Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
-          <div class="just-body">Não aparece no Top 15 da página principal (cai para a 24ª posição sem o Bloco E ponderado — ver Construção.md) — volta ao Top 15 aqui puxado quase inteiramente pela ausência de concorrência: zero lavanderias registradas no CNAE, o valor mais baixo possível de saturação.</div>
+          <summary><span class="just-rank">8º</span><span class="just-name">Casa Amarela</span><span class="just-score">45,1 · Alto</span></summary>
+          <div class="just-body">Mantém a 8ª posição nos dois cenários — volume de domicílios grande (15.872, um dos maiores do grupo) e concorrência moderada-baixa (7 lavanderias registradas, 2 delas de redes nacionais) sustentam a posição em ambas as versões.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">9º</span><span class="just-name">Espinheiro</span><span class="just-score">47,7 · Muito Alto</span></summary>
-          <div class="just-body">9ª maior renda média da cidade (R$ 22.147) e boa densidade (7.420 dom./km²) sustentam a posição apesar de ter uma das concorrências mais instaladas do Top 15 (86º lugar de 94 em menor concorrência — 3 das 5 redes nacionais mapeadas têm unidade no bairro).</div>
+          <summary><span class="just-rank">9º</span><span class="just-name">Arruda</span><span class="just-score">43,7 · Alto</span></summary>
+          <div class="just-body">Sobe da 14ª para a 9ª posição — nenhuma lavanderia registrada no bairro (empatado com Coqueiral na menor concorrência do Top 15) ajuda a compensar indicadores medianos-baixos nos demais blocos (renda de R$ 5.704 e comércio de rua de 69,4 por mil domicílios).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">10º</span><span class="just-name">Casa Forte</span><span class="just-score">47,2 · Muito Alto</span></summary>
-          <div class="just-body">Tem a maior renda média de toda a cidade (R$ 29.969), mas o perfil domiciliar é o menos favorável do Top 15 neste cenário (2,33 pessoas por domicílio, 74º lugar de 94 em "menor é melhor") e a concorrência já instalada também pesa contra (80º lugar de 94 em menor concorrência) — a renda isoladamente ainda é suficiente para manter o bairro no grupo de liderança.</div>
+          <summary><span class="just-rank">10º</span><span class="just-name">Pina</span><span class="just-score">42,4 · Alto</span></summary>
+          <div class="just-body">Mantém a 10ª posição nos dois cenários — 2ª maior taxa de unipessoais do grupo (30,6%) e 2º maior comércio de rua (201 por mil domicílios), com concorrência moderada (1 unidade de rede nacional mapeada, 60 Minutos).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">11º</span><span class="just-name">Morro da Conceição</span><span class="just-score">45,9 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
-          <div class="just-body">Não aparece no Top 15 da página principal — entra aqui pela combinação de zero lavanderias registradas no CNAE (menor concorrência possível) com a 4ª maior densidade domiciliar da cidade (9.804 dom./km²), mesmo com renda baixa (R$ 3.438, 78º lugar de 94).</div>
+          <summary><span class="just-rank">11º</span><span class="just-name">Água Fria</span><span class="just-score">42,0 · Alto</span></summary>
+          <div class="just-body">Sobe da 13ª para a 11ª posição — a maior densidade domiciliar do grupo (8.895 dom./km²) e concorrência relativamente baixa (6º menor de 15) ajudam a compensar a menor taxa de unipessoais do Top 15 (20,6%) e a renda baixa (R$ 3.682).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">12º</span><span class="just-name">Encruzilhada</span><span class="just-score">45,7 · Alto</span></summary>
-          <div class="just-body">Presente nos dois cenários — densidade (8.301 dom./km²) e renda (R$ 16.198) medianas-altas dentro do Top 15, com concorrência moderada-alta (77º lugar de 94 em menor concorrência) que o segura perto do fim da lista em ambas as versões.</div>
+          <summary><span class="just-rank">12º</span><span class="just-name">Madalena</span><span class="just-score">41,7 · Médio</span></summary>
+          <div class="just-body">Cai da 6ª para a 12ª posição — é o maior salto para baixo do Top 15 entre os dois cenários. O motivo é a concorrência já instalada: 11 lavanderias registradas, a 3ª maior contagem absoluta da cidade (atrás só de Boa Viagem e Várzea), incluindo 2 unidades de redes nacionais (60 Minutos e Laundromat) — o bom volume de domicílios (13.145) não é suficiente para segurar a posição quando esse critério entra com peso.</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">13º</span><span class="just-name">Torre</span><span class="just-score">45,6 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
-          <div class="just-body">Não aparece no Top 15 da página principal — entra aqui puxado pela boa densidade domiciliar (8.833 dom./km², 10ª maior da cidade), apesar de ter concorrência relativamente alta (73º lugar de 94 em menor concorrência — 2 redes nacionais mapeadas, OMO e Laundromat).</div>
+          <summary><span class="just-rank">13º</span><span class="just-name">Linha do Tiro</span><span class="just-score">41,5 · Médio</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal (cai bastante sem o Bloco E ponderado) — entra aqui quase inteiramente pela ausência de concorrência: nenhuma lavanderia registrada no bairro. Os demais indicadores são dos mais fracos do grupo — a menor taxa de domicílios unipessoais do Top 15 (20,2%) e renda entre as mais baixas (R$ 3.202).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">14º</span><span class="just-name">Boa Viagem</span><span class="just-score">45,6 · Alto</span></summary>
-          <div class="just-body">Presente nos dois cenários (10º na página principal, 14º aqui) — cai algumas posições porque concentra a maior concorrência já instalada de toda a cidade (87º lugar de 94 em menor concorrência: as 5 redes nacionais mapeadas e o maior número absoluto de lavanderias independentes do Recife, ver aba Concorrentes). Segue no Top 15 puxado pelo 7º menor número de pessoas por domicílio e por renda considerável (R$ 20.282).</div>
+          <summary><span class="just-rank">14º</span><span class="just-name">Nova Descoberta</span><span class="just-score">41,5 · Médio</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Não aparece no Top 15 da página principal — entra aqui pela mesma lógica de Linha do Tiro: nenhuma lavanderia registrada compensa a menor renda média de todo o Top 15 (R$ 2.738). Tem um volume de domicílios considerável (13.186, um dos maiores do grupo).</div>
         </details>
         <details class="just-item">
-          <summary><span class="just-rank">15º</span><span class="just-name">Bomba do Hemetério</span><span class="just-score">45,6 · Alto</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
-          <div class="just-body">Não aparece no Top 15 da página principal — fecha esta lista quase inteiramente pela ausência de concorrência (zero lavanderias registradas no CNAE), já que os demais indicadores são os mais fracos do grupo (53º lugar de 94 em % de unipessoais e 88º em pessoas por domicílio, o pior perfil domiciliar do Top 15 deste cenário).</div>
+          <summary><span class="just-rank">15º</span><span class="just-name">Vasco da Gama</span><span class="just-score">41,5 · Médio</span><span class="just-flag-ce">Fora do Top 15 principal</span></summary>
+          <div class="just-body">Fecha o Top 15 sem nenhuma unidade de rede nacional mapeada e com saturação baixíssima (0,08 lavanderias por mil domicílios, apenas 1 registrada no bairro) — indicadores de renda (R$ 3.596) e comércio de rua discretos seguram a posição no fim da lista.</div>
         </details>
       </div>
     </main>
@@ -1362,6 +1367,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </ul>
   <div class="callout"><p><strong>Decisão sobre o Bloco E (set/2026).</strong> Até esta rodada, o Bloco E entrava com peso de 20% e direção "menor é melhor" (mais lavanderias já instaladas = bairro menos atrativo). A consultora questionou essa direção: como o cliente de lavanderia self-service tem baixa lealdade de marca, uma alta concentração poderia sinalizar demanda validada, não saturação. Três checagens testaram a hipótese: (1) o indicador correlaciona 0,66 com renda e 0,40 com comércio, mas só 0,29 com % domicílios unipessoais (o driver estrutural do índice) — sinal de que é redundante com outros blocos, não uma medida independente de demanda; (2) usando o universo completo de 244 lavanderias registradas (não só as 5 redes nacionais), 65% dos bairros com lavanderia têm 2 ou mais coexistindo, mas essa coexistência não vem acompanhada de negócios mais duradouros (correlação de ~0 entre nº de lavanderias e tempo médio de funcionamento) — o achado inicial de "redes se agrupando em bairros bons" não se sustentou com a base completa; (3) invertendo a direção do indicador ("maior é melhor"), o ranking resultante tem Spearman de apenas 0,49 com o atual, puxado por bairros pequenos com 1-2 lavanderias sobre base pequena — a mesma instabilidade que motivou o piso mínimo (§3). Nenhuma das duas direções teve lastro suficiente; a decisão foi retirar o Bloco E do peso e mantê-lo como contexto (mesmo tratamento do multicritério Economapas e do comércio OSM, acima). Detalhamento completo no documento de entrega e no log do projeto.</p>
   <p style="margin-top:10px"><strong>Segunda página do índice (set/2026).</strong> A pedido da consultora, o dashboard também disponibiliza a aba <strong>IPSM c/ Concorrência</strong>, que recalcula o índice tratando o Bloco E como critério ponderado (direção "menor é melhor" mantida), na mesma estrutura de pesos usada por este projeto antes da decisão acima — A 30% / B 20% / C 10% / D 20% / E 20%. As duas páginas convivem lado a lado como leituras alternativas; esta (Ranking) continua sendo a versão principal/oficial do índice.</p></div>
+  <div class="callout" id="piso-mercado"><p><strong>Piso de mercado e vizinhança no Top 15 (set/2026).</strong> A cliente observou que dois bairros do Top 3 original — Santo Antônio (462 domicílios) e Rosarinho (3.586) — têm mercado pequeno demais para justificar uma unidade, mesmo com nota alta no índice, e que Rosarinho fica a 1,5 km de Graças, gerando risco de canibalização entre lojas próprias. Duas extensões foram avaliadas e testadas antes de implementar: (1) um <strong>piso de porte de mercado</strong> — excluir bairros com 5.000 domicílios ou menos das tabelas de Ranking e IPSM c/ Concorrência (KPIs, Top 5, tabela completa e exportação CSV); os 94 bairros seguem visíveis, sem esse recorte, na aba <strong>Dados Detalhados</strong>. Esse piso sozinho já resolve os dois casos citados pela cliente. (2) uma <strong>regra de exclusão automática por proximidade geográfica</strong> (definida como fronteira compartilhada entre os polígonos dos bairros, não distância em linha reta) entre os bairros do Top 15: simulada antes de qualquer implementação, essa regra removeria Graças e Espinheiro do resultado por serem vizinhos de Boa Vista — o que contrariaria a validação já feita entre a consultora e a cliente de manter Boa Vista E Graças no Top 3. Por isso, a vizinhança entre bairros do Top 15 é sinalizada apenas como aviso informativo (selo "Vizinhança no Top 15" na tabela), sem remover ninguém do ranking automaticamente — a decisão final sobre qual bairro escolher entre vizinhos próximos fica com a consultora e a cliente, caso a caso.</p></div>
   <p><strong>Tratamento de dado ausente, e extensão de metodologia desta rodada.</strong> A regra é nunca estimar ou preencher dado ausente — o peso é redistribuído entre os demais indicadores do mesmo bloco, para a unidade afetada. Na versão por zona, nenhuma unidade tinha indicador ausente. Na versão por bairro oficial, o piso mínimo de base (§3) deixa <strong>11 bairros</strong> sem os indicadores dos Blocos D e E — e como esses blocos têm um único indicador cada (100% do peso do bloco), não há "outro indicador do mesmo bloco" para redistribuir. A regra foi estendida de forma consistente: quando um bloco inteiro fica ausente numa linha, seu peso é redistribuído entre os blocos restantes que têm dado naquela linha. Com o Bloco E fora do peso, essa redistribuição afeta hoje só o Bloco D, entre os blocos A, B e C. Os 11 bairros afetados (todos com menos de 1.000 domicílios): Paissandu, Toto, Derby, Jaqueira, Torreão, Pau Ferro, Cidade Universitária, Recife, Santo Antônio, Cabanga e Ilha do Leite — use a busca da aba <strong>Ranking</strong> para localizá-los (marcados com uma nota "abaixo do piso mínimo").</p>
   <div class="callout"><p><strong>Teste de robustez.</strong> Os pesos por bloco foram submetidos a uma simulação de 300 cenários com variação aleatória de até ±20% em cada peso de bloco, já na estrutura sem o Bloco E, usando a mesma lógica de redistribuição descrita acima. Em média, 91,2% dos 10 bairros mais bem colocados permanecem entre os 10 primeiros mesmo com pesos variados (mínimo observado: 80%), 98,9% do Top 15 se mantém em média (mínimo 86,7%), e a correlação de Spearman com o ranking base ficou em 99,55% (mínimo observado: 98,08%) — mais estável do que a estrutura anterior com 5 blocos (98,75%/94,99%). O ranking não depende de forma frágil da distribuição exata de peso escolhida, e retirar o indicador mais instável do índice (Bloco E) tornou a estrutura como um todo mais robusta.</p></div>
 
@@ -1477,6 +1483,11 @@ function computeScores(){
     const p = z.percentile;
     z.classe = p>=0.90 ? 'Muito Alto' : p>=0.70 ? 'Alto' : p>=0.40 ? 'Medio' : p>=0.15 ? 'Baixo' : 'Muito Baixo';
   });
+  // Posição entre os 94 bairros da cidade (independe do piso de mercado aplicado
+  // na tabela de ranking -- ver MARKET_FLOOR abaixo) -- usada pelo popup do Mapa
+  // ("Posição #X de 94"), que continua mostrando a cidade inteira.
+  const rankedAll = [...zonas].sort((a,b)=>b.score-a.score);
+  rankedAll.forEach((z,i)=>{ z.rankCidade = i+1; });
 }
 
 function computeScoresCE(){
@@ -1688,13 +1699,14 @@ function median(arr){
 }
 function renderKPIs(){
   const g = document.getElementById('kpiGrid');
+  const list = zonas.filter(z => z.domicilios > MARKET_FLOOR);
   const counts = {'Muito Alto':0,'Alto':0,'Medio':0,'Baixo':0,'Muito Baixo':0};
-  zonas.forEach(z=>counts[z.classe]++);
-  const med = median(zonas.map(z=>z.score));
+  list.forEach(z=>counts[z.classe]++);
+  const med = list.length ? median(list.map(z=>z.score)) : 0;
   const cards = [
-    {lbl:'Bairros', val:zonas.length, sub:'total em Recife', cls:''},
-    {lbl:'Nota mediana', val:med.toFixed(1), sub:'de 94 bairros', cls:''},
-    {lbl:'Muito Alto', val:counts['Muito Alto'], sub:'≥ percentil 90', cls:'cma'},
+    {lbl:'Bairros elegíveis', val:list.length, sub:`de 94 · > ${MARKET_FLOOR.toLocaleString('pt-BR')} domicílios`, cls:''},
+    {lbl:'Nota mediana', val:med.toFixed(1), sub:'entre os elegíveis', cls:''},
+    {lbl:'Muito Alto', val:counts['Muito Alto'], sub:'≥ percentil 90 (cálculo original)', cls:'cma'},
     {lbl:'Alto', val:counts['Alto'], sub:'percentil 70–90', cls:'ca'},
     {lbl:'Médio', val:counts['Medio'], sub:'percentil 40–70', cls:'cm'},
     {lbl:'Baixo + Muito Baixo', val:counts['Baixo']+counts['Muito Baixo'], sub:'percentil < 40', cls:'cb'},
@@ -1703,7 +1715,7 @@ function renderKPIs(){
 }
 function renderTop5(){
   const el = document.getElementById('top5');
-  const f = [...zonas].sort((a,b)=>b.score-a.score).slice(0,5);
+  const f = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.score-a.score).slice(0,5);
   el.innerHTML = f.map((z,i)=>`<div class="t5-card r${i+1}">
     <div class="t5-rank">#${i+1}</div>
     <div class="t5-name">${z.nome}</div>
@@ -1714,13 +1726,14 @@ function renderTop5(){
 }
 function renderKPIsCE(){
   const g = document.getElementById('kpiGridCE'); if(!g) return;
+  const list = zonas.filter(z => z.domicilios > MARKET_FLOOR);
   const counts = {'Muito Alto':0,'Alto':0,'Medio':0,'Baixo':0,'Muito Baixo':0};
-  zonas.forEach(z=>counts[z.classeCE]++);
-  const med = median(zonas.map(z=>z.scoreCE));
+  list.forEach(z=>counts[z.classeCE]++);
+  const med = list.length ? median(list.map(z=>z.scoreCE)) : 0;
   const cards = [
-    {lbl:'Bairros', val:zonas.length, sub:'total em Recife', cls:''},
-    {lbl:'Nota mediana', val:med.toFixed(1), sub:'de 94 bairros', cls:''},
-    {lbl:'Muito Alto', val:counts['Muito Alto'], sub:'≥ percentil 90', cls:'cma'},
+    {lbl:'Bairros elegíveis', val:list.length, sub:`de 94 · > ${MARKET_FLOOR.toLocaleString('pt-BR')} domicílios`, cls:''},
+    {lbl:'Nota mediana', val:med.toFixed(1), sub:'entre os elegíveis', cls:''},
+    {lbl:'Muito Alto', val:counts['Muito Alto'], sub:'≥ percentil 90 (cálculo original)', cls:'cma'},
     {lbl:'Alto', val:counts['Alto'], sub:'percentil 70–90', cls:'ca'},
     {lbl:'Médio', val:counts['Medio'], sub:'percentil 40–70', cls:'cm'},
     {lbl:'Baixo + Muito Baixo', val:counts['Baixo']+counts['Muito Baixo'], sub:'percentil < 40', cls:'cb'},
@@ -1729,7 +1742,7 @@ function renderKPIsCE(){
 }
 function renderTop5CE(){
   const el = document.getElementById('top5CE'); if(!el) return;
-  const f = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE).slice(0,5);
+  const f = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.scoreCE-a.scoreCE).slice(0,5);
   el.innerHTML = f.map((z,i)=>`<div class="t5-card r${i+1}">
     <div class="t5-rank">#${i+1}</div>
     <div class="t5-name">${z.nome}</div>
@@ -1921,6 +1934,124 @@ BAIRROS_GEO.features.forEach(f=>{ GEO_BY_KEY[normNome(f.properties.nome)] = f; }
 function geoFor(z){ return z ? GEO_BY_KEY[normNome(z.nome)] : undefined; }
 function zonaForFeature(feature){ return zonas.find(x=>normNome(x.nome)===normNome(feature.properties.nome)); }
 
+/* ===================== PROXIMIDADE ENTRE BAIRROS (VIZINHANÇA NO TOP 15) =====================
+   Pedido da consultora (2026-09-18): sinalizar automaticamente, na tabela de
+   ranking, quando dois bairros do Top 15 são vizinhos (fronteira compartilhada)
+   -- caso citado pela cliente: Rosarinho e Graças, a 1,5 km um do outro. Selo
+   renomeado de "risco de canibalização" para "Vizinhança no Top 15" a pedido
+   da consultora (2026-09-18), mantendo o mesmo mecanismo (aviso informativo,
+   sem exclusão automática).
+   Vizinhança = compartilhar (ou quase) um vértice de fronteira no polígono do
+   GeoJSON -- os limites da Prefeitura são desenhados com vértices idênticos
+   entre bairros vizinhos, então a menor distância vértice-a-vértice cai para
+   ~0 exatamente nos pares vizinhos (conferido em Python com shapely.touches(),
+   100% de acerto nos 105 pares do Top 15 principal, sem exceção). Não é uma
+   medida de distância de deslocamento real (não segue ruas) -- é um alerta de
+   fronteira compartilhada, para a consultora avaliar caso a caso, não uma
+   regra automática de exclusão.
+   Grafo de adjacência e centróides são calculados uma única vez aqui (geometria
+   é fixa); só a lista de quem está no Top 15 muda quando os pesos mudam. */
+const BAIRRO_RING_BY_KEY = {};
+const BAIRRO_CENTROID_BY_KEY = {};
+const BAIRRO_ADJACENCY = {};
+function ringCentroid(ring){
+  let area = 0, cx = 0, cy = 0;
+  for(let i=0;i<ring.length-1;i++){
+    const x0=ring[i][0], y0=ring[i][1], x1=ring[i+1][0], y1=ring[i+1][1];
+    const cross = x0*y1 - x1*y0;
+    area += cross; cx += (x0+x1)*cross; cy += (y0+y1)*cross;
+  }
+  area *= 0.5;
+  if(Math.abs(area) < 1e-12){
+    let sx=0, sy=0;
+    ring.forEach(p=>{ sx+=p[0]; sy+=p[1]; });
+    return [sx/ring.length, sy/ring.length];
+  }
+  return [cx/(6*area), cy/(6*area)];
+}
+function haversineKm(a, b){
+  const R = 6371, toRad = d => d*Math.PI/180;
+  const dLat = toRad(b[1]-a[1]), dLon = toRad(b[0]-a[0]);
+  const lat1 = toRad(a[1]), lat2 = toRad(b[1]);
+  const h = Math.sin(dLat/2)**2 + Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h));
+}
+function ringsSaoVizinhos(ra, rb){
+  const LIMIAR_DEG = 0.0001; // ~10m -- fronteiras compartilhadas caem em ~0
+  for(let i=0;i<ra.length;i++){
+    for(let j=0;j<rb.length;j++){
+      if(Math.abs(ra[i][0]-rb[j][0]) < LIMIAR_DEG && Math.abs(ra[i][1]-rb[j][1]) < LIMIAR_DEG) return true;
+    }
+  }
+  return false;
+}
+function computeBairroAdjacency(){
+  BAIRROS_GEO.features.forEach(f=>{
+    const key = normNome(f.properties.nome);
+    const ring = f.geometry.coordinates[0];
+    BAIRRO_RING_BY_KEY[key] = ring;
+    BAIRRO_CENTROID_BY_KEY[key] = ringCentroid(ring);
+  });
+  const keys = Object.keys(BAIRRO_RING_BY_KEY);
+  const bbox = {};
+  keys.forEach(k=>{
+    const ring = BAIRRO_RING_BY_KEY[k];
+    let minX=Infinity, minY=Infinity, maxX=-Infinity, maxY=-Infinity;
+    ring.forEach(p=>{ if(p[0]<minX)minX=p[0]; if(p[0]>maxX)maxX=p[0]; if(p[1]<minY)minY=p[1]; if(p[1]>maxY)maxY=p[1]; });
+    bbox[k] = {minX,minY,maxX,maxY};
+    BAIRRO_ADJACENCY[k] = new Set();
+  });
+  const PAD = 0.001; // ~100m de folga no pré-filtro por caixa delimitadora
+  for(let i=0;i<keys.length;i++){
+    for(let j=i+1;j<keys.length;j++){
+      const a = bbox[keys[i]], b = bbox[keys[j]];
+      if(a.maxX+PAD < b.minX || b.maxX+PAD < a.minX || a.maxY+PAD < b.minY || b.maxY+PAD < a.minY) continue;
+      if(ringsSaoVizinhos(BAIRRO_RING_BY_KEY[keys[i]], BAIRRO_RING_BY_KEY[keys[j]])){
+        BAIRRO_ADJACENCY[keys[i]].add(keys[j]);
+        BAIRRO_ADJACENCY[keys[j]].add(keys[i]);
+      }
+    }
+  }
+}
+computeBairroAdjacency();
+function distanciaEntreBairrosKm(nomeA, nomeB){
+  const ca = BAIRRO_CENTROID_BY_KEY[normNome(nomeA)], cb = BAIRRO_CENTROID_BY_KEY[normNome(nomeB)];
+  if(!ca || !cb) return null;
+  return haversineKm(ca, cb);
+}
+// vizinhosNoTop(top15): a partir da lista atual de bairros no Top 15 (já
+// recalculada a cada mudança de peso), monta um mapa nome -> lista de vizinhos
+// (só entre os que também estão no Top 15), usando o grafo de adjacência fixo.
+function vizinhosNoTop(top15Nomes){
+  const mapa = {};
+  const setTop = new Set(top15Nomes.map(normNome));
+  top15Nomes.forEach(nome=>{
+    const key = normNome(nome);
+    const viz = BAIRRO_ADJACENCY[key];
+    if(!viz) return;
+    viz.forEach(vKey=>{
+      if(!setTop.has(vKey)) return;
+      const vNome = top15Nomes.find(n=>normNome(n)===vKey);
+      if(!vNome) return;
+      if(!mapa[nome]) mapa[nome] = [];
+      mapa[nome].push({nome: vNome, km: distanciaEntreBairrosKm(nome, vNome)});
+    });
+  });
+  return mapa;
+}
+function vizinhancaFlagHTML(nome, vizinhosMap){
+  const viz = vizinhosMap[nome];
+  if(!viz || !viz.length) return '';
+  const ordenado = [...viz].sort((a,b)=>a.km-b.km);
+  const principal = ordenado[0];
+  const resto = ordenado.length - 1;
+  const label = resto > 0
+    ? `vizinho de ${principal.nome} (${principal.km.toFixed(1)} km) e mais ${resto} no Top 15`
+    : `vizinho de ${principal.nome} (${principal.km.toFixed(1)} km) no Top 15`;
+  const tooltip = ordenado.map(v=>`${v.nome} (${v.km.toFixed(1)} km)`).join(', ');
+  return `<span class="flag flag-viz" title="Fronteira compartilhada com: ${tooltip}">Vizinhança no Top 15 — ${label}</span>`;
+}
+
 let mapInstance=null, geoLayer=null, labelLayer=null;
 let mapMode='class', mapClassSet=new Set(), showLabels=false, showBorders=true;
 
@@ -1968,7 +2099,7 @@ function mapPopupHTML(z){
   return `<div class="pop-h">${z.nome}</div>
     <div class="pop-sub">Cód. ${z.id} · ${z.domicilios.toLocaleString('pt-BR')} domicílios</div>
     <div class="pop-score"><b style="color:${mapZonaColor(z)}">${z.score.toFixed(1)}</b><span class="badge ${classBadgeCls(z.classe)}">${classLabel(z.classe)}</span></div>
-    <div style="font-size:11px;color:var(--muted)">Posição <b style="color:var(--text)">#${z.rank||'–'}</b> de 94</div>
+    <div style="font-size:11px;color:var(--muted)">Posição <b style="color:var(--text)">#${z.rankCidade||'–'}</b> de 94</div>
     <div class="pop-sec">Nota por bloco (0–100, no peso atual)</div>
     <table class="pop-tbl">${blocos}</table>
     <div class="pop-sec">Contexto — Bloco E (sem peso)</div>
@@ -2283,6 +2414,23 @@ function buildCompControls(){
 }
 
 /* ===================== RANKING TABLE ===================== */
+/* Piso de mercado: pedido da consultora (2026-09-18), após o feedback da cliente
+   sobre porte de mercado e proximidade entre bairros. Exclui da tabela de
+   Ranking (e, pela mesma lógica, da IPSM c/ Concorrência) bairros com 5.000
+   domicílios ou menos -- mercado pequeno demais para sustentar uma unidade,
+   mesmo com nota alta no índice. Testado antes de implementar: um piso puro já
+   resolve boa parte dos casos citados pela cliente (Santo Antônio, 462
+   domicílios, e Rosarinho, 3.586, saem só pelo piso, sem precisar de nenhuma
+   regra de vizinhança). A vizinhança entre os bairros que passam no piso
+   continua só como aviso (selo "Vizinhança no Top 15"), sem exclusão
+   automática -- uma exclusão automática por vizinhança removeria Graças e
+   Espinheiro do resultado por serem vizinhos de Boa Vista, contrariando a
+   própria consultora, que já tinha validado com a cliente manter Boa Vista E
+   Graças no Top 3. z.rank/z.rankCE (posição dentro da tabela filtrada) foram
+   desacoplados de z.rankCidade (posição entre os 94 bairros da cidade, ver
+   computeScores) para que o popup do Mapa continue mostrando "Posição #X de
+   94" corretamente mesmo para bairros excluídos pelo piso. */
+const MARKET_FLOOR = 5000;
 let rankingSort = {key:'score', dir:'desc'};
 let indicadoresSort = {key:'nome', dir:'asc'};
 let rankingFilter = '', indicadoresFilter = '';
@@ -2321,7 +2469,7 @@ function renderRankingHead(){
 }
 function renderRankingTable(){
   renderRankingHead();
-  const sorted = [...zonas].sort((a,b)=>b.score-a.score);
+  const sorted = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.score-a.score);
   sorted.forEach((z,i)=>{ z.rank = i+1; });
 
   let rows = sorted.filter(z => z.nome.toLowerCase().includes(rankingFilter.toLowerCase()));
@@ -2335,6 +2483,8 @@ function renderRankingTable(){
 
   document.getElementById('tCount').textContent = rows.length + ' bairro' + (rows.length===1?'':'s');
   const maxS = sorted.length ? sorted[0].score : 1;
+  const top15Nomes = sorted.slice(0,15).map(z=>z.nome);
+  const vizinhosMap = vizinhosNoTop(top15Nomes);
   const tbody = document.getElementById('tBody');
   tbody.innerHTML = rows.map(z=>{
     const segs = BLOCKS.map(b=>{
@@ -2343,7 +2493,7 @@ function renderRankingTable(){
     }).join('');
     return `<tr>
       <td class="rk">${z.rank}</td>
-      <td class="bn">${z.nome}${z.abaixo_piso ? '<span class="flag">abaixo do piso mínimo de base — indicador do Bloco D ausente (peso redistribuído)</span>' : ''}</td>
+      <td class="bn">${z.nome}${z.abaixo_piso ? '<span class="flag">abaixo do piso mínimo de base — indicador do Bloco D ausente (peso redistribuído)</span>' : ''}${z.rank<=15 ? vizinhancaFlagHTML(z.nome, vizinhosMap) : ''}</td>
       <td class="num sc">${z.score.toFixed(1)}</td>
       <td><span class="badge ${classBadgeCls(z.classe)}">${classLabel(z.classe)}</span></td>
       <td><div class="bar-w">${segs}</div></td>
@@ -2387,7 +2537,7 @@ function renderRankingHeadCE(){
 function renderRankingTableCE(){
   renderRankingHeadCE();
   const el = document.getElementById('tBodyCE'); if(!el) return;
-  const sorted = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE);
+  const sorted = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.scoreCE-a.scoreCE);
   sorted.forEach((z,i)=>{ z.rankCE = i+1; });
 
   let rows = sorted.filter(z => z.nome.toLowerCase().includes(rankingFilterCE.toLowerCase()));
@@ -2401,6 +2551,8 @@ function renderRankingTableCE(){
 
   document.getElementById('tCountCE').textContent = rows.length + ' bairro' + (rows.length===1?'':'s');
   const maxS = sorted.length ? sorted[0].scoreCE : 1;
+  const top15NomesCE = sorted.slice(0,15).map(z=>z.nome);
+  const vizinhosMapCE = vizinhosNoTop(top15NomesCE);
   el.innerHTML = rows.map(z=>{
     const segs = BLOCKS_CE.map(b=>{
       const pct = (z._contribsCE[b.id]/maxS*100) || 0;
@@ -2412,7 +2564,7 @@ function renderRankingTableCE(){
     const flag = flagBits.length ? `<span class="flag">abaixo do piso mínimo de base — ${flagBits.join(' e ')} ausente(s) (peso redistribuído)</span>` : '';
     return `<tr>
       <td class="rk">${z.rankCE}</td>
-      <td class="bn">${z.nome}${flag}</td>
+      <td class="bn">${z.nome}${flag}${z.rankCE<=15 ? vizinhancaFlagHTML(z.nome, vizinhosMapCE) : ''}</td>
       <td class="num sc">${z.scoreCE.toFixed(1)}</td>
       <td><span class="badge ${classBadgeCls(z.classeCE)}">${classLabel(z.classeCE)}</span></td>
       <td><div class="bar-w">${segs}</div></td>
@@ -2471,7 +2623,7 @@ if (window.claude && typeof window.claude.use === 'function') {
   window.claude.use('downloads').then(ns => { downloadsNS = ns; }).catch(()=>{ downloadsNS = null; });
 }
 function buildCsv(){
-  const sorted = [...zonas].sort((a,b)=>b.score-a.score);
+  const sorted = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.score-a.score);
   const header = ['rank','bairro_id','bairro_nome','score','classificacao','blocos_ausentes','peso_A','peso_B','peso_C','peso_D','peso_A_unipessoais_pct','domicilios','lavanderias_por_mil_domicilios_contexto_sem_peso'];
   const wsum = weights.A+weights.B+weights.C+weights.D;
   const fmt = v => String(v).replace('.', ',');
@@ -2514,7 +2666,7 @@ document.getElementById('exportBtn').addEventListener('click', async ()=>{
 });
 
 function buildCsvCE(){
-  const sorted = [...zonas].sort((a,b)=>b.scoreCE-a.scoreCE);
+  const sorted = zonas.filter(z => z.domicilios > MARKET_FLOOR).sort((a,b)=>b.scoreCE-a.scoreCE);
   const header = ['rank','bairro_id','bairro_nome','score_com_concorrencia','classificacao','blocos_ausentes','peso_A','peso_B','peso_C','peso_D','peso_E','peso_A_unipessoais_pct','domicilios','lavanderias_por_mil_domicilios'];
   const wsum = weightsCE.A+weightsCE.B+weightsCE.C+weightsCE.D+weightsCE.E;
   const fmt = v => String(v).replace('.', ',');
